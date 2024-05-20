@@ -32,7 +32,18 @@ button {
 body {
   background: #131520;
   overflow: hidden;
+  font-family: monospace;
+  color: #ffffff;
 }
+
+.title {
+  text-align: center;
+}
+
+
+
+
+
 
 .wrapper-images {
   display: flex;
@@ -44,6 +55,7 @@ body {
   top: 50%;
   opacity: 0.8;
   transform: translate3d(-50%, -50%, 0) perspective(800px) rotatey(10deg) rotateX(-10deg);
+  z-index: -1;
 }
 
 .images-line {
