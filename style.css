@@ -82,7 +82,6 @@ body {
   border-radius: 1rem;
 }
 .images-line .line:hover .img {
-  cursor: pointer;
   transform: scale(1.1) translatez(0px);
 }
 .images-line .line:hover:after {
