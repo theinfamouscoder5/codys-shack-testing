@@ -1,17 +1,5 @@
 @charset "UTF-8";
-/********************************************/
-/********************************************/
-/* Please ❤ this if you like it! */
-/* Follow Me https://codepen.io/designfenix */
-/********************************************/
-/********************************************/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
-/**/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap");
 :root {
   --duration: 15s;
@@ -38,6 +26,7 @@ body {
 
 .title {
   text-align: center;
+  font-size: 36px;
 }
 
 
