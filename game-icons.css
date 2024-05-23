@@ -5,18 +5,6 @@
 --duration: 15s;
 }
 
-button {
-position: fixed;
-top: 1vw;
-right: 1vw;
-z-index: 5;
-background: none;
-border: 0;
-outline: none;
-color: white;
-cursor: pointer;
-}
-
 body {
 background: #131520;
 overflow: hidden;

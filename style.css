@@ -5,7 +5,7 @@
   --duration: 15s;
 }
 
-button {
+.fullscreen {
   position: fixed;
   top: 1vw;
   right: 1vw;
@@ -20,7 +20,7 @@ button {
 body {
   background: #131520;
   overflow: hidden;
-  font-family: monospace;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
 }
 
