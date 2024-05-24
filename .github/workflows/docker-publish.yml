@@ -1,0 +1,18 @@
+name: Publish image to Docker Hub
+
+on:
+  [workflow_dispatch]
+
+jobs:
+  publish_image:
+    runs-on: ubuntulatest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: build
+        run: |
+          docker build . -t ${{ secret.DOCKERHUB_USERNAME}}/${{ secrets.DOCKERHUB_NAME}}:latest
+      - name: publish
+        run: |
+          docker login -u ${{ secret.DOCKERHUB_USERNAME}} -p ${{ secret.DOCKERHUB_TOKEN}}
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}/${{ secret.DOCKERHUB_NAME}}:latest
