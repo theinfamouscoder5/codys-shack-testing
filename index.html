@@ -1,39 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Home | Cody's Shack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      
+      .mainheader {
+        padding-top: 200px;
+        padding-left: 150px;
+        background-image: url('https://i.postimg.cc/NfXyLdfv/codys-shack-background.gif');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 500px;
+      }
+      
+      .game-icons {
+        text-align: center;
+      }
+      
+      .game-icons-container {
+        margin: 10px auto 20px;
+      }
+      
+      .game-icons-container,
+      .game-icon1,
+      .gameicon2 {
+      }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      .gameicon1,
+      .gameicon2 {
+        display: inline-block;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="bg-gray-800">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div class="relative flex h-16 items-center justify-between">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <!-- Mobile menu button-->
+              <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+                <span class="absolute -inset-0.5"></span>
+                <span class="sr-only">Open main menu</span>
+                <!--
+                  Icon when menu is closed.
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <!--
+                  Icon when menu is open.
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+              <div class="flex flex-shrink-0 items-center">
+                <a href="index.html" title="Home"><img class="h-10 w-auto rounded-xl" src="logo.png" alt="Cody's Shack Logo"></a>
+                <a href="index.html" title="Home"><p class="text-white px-3 py-2 text-base font-medium">Cody's Shack</p></a>
+              </div>
+              <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="membership.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Membership</a>
+                  <a href="discover.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Games</a>
+                  <a href="allgames.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
+                  <a href="discord.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Discord</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>   
+      
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="space-y-1 px-2 pb-3 pt-2">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
+            <a href="discover.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Discover</a>
+            <a href="allgames.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">All Games</a>
+            <a href="discord.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Discord</a>
+          </div>
+        </div>
+      </nav>
+      <div class="mainheader">
+        <div>
+          <p class="text-5xl font-bold">The next era of gaming</p>
+          <p class="text-2xl font-medium">From ultimate cloud-gaming to classic Nintento games, we've got it all</p>
+          <br>
+          <a href="allgames.html" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">PLAY NOW</a>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="game-icons">
+        <p class="text-4xl font-bold">Connect to many different game providers</p>
+        <p class="text-xl font-medium">Including Steam, Epic Games, Ubisoft, X-Box, and more</p>
+        <div class="game-icons-container">
+          <div class="gameicon1">
+            <img src="steam-logo.png" width="175" height="175">
+            <p class="text-base">Steam</p>
+          </div>
+          <div class="gameicon2">
+            <img src="epic-games-logo.png" width="175" height="175">
+            <p class="text-base">Epic Games</p>
+          </div>
+          <div class="gameicon1">
+            <img src="ubisoft-logo.png" width="175" height="175">
+            <p class="text-base">Ubisoft</p>
+          </div>
+          <div class="gameicon2">
+            <img src="xbox-logo.png" width="175" height="175">
+            <p class="text-base">X-Box</p>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
