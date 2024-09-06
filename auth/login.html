@@ -6,56 +6,15 @@
     <title>Login | CodyGG</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../loader.css">
-
-    <style>
-        .button-ripple {
-          position: relative;
-          overflow: hidden;
-          transition: background 400ms;
-          color: #fff;
-          background-color: #0083ee;
-          padding: 0.5rem 1rem;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          font-size: 1rem;
-          outline: 0;
-          border: 0;
-          border-radius: 0.25rem;
-          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3); /* black with 30% opacity */
-          cursor: pointer;
-        }
-        
-        .button-ripple:hover {
-            background-color: #0053ee;
-        }
-        
-        span.ripple {
-          position: absolute;
-          border-radius: 50%;
-          transform: scale(0);
-          animation: ripple 600ms linear;
-          background-color: rgba(255, 255, 255, 0.7);
-        }
-        
-        @keyframes ripple {
-          to {
-            transform: scale(4);
-            opacity: 0;
-          }
-        }
-        </style>
 </head>
-<body onload="const element = document.getElementById('loader-box'); setTimeout(() => { element.remove(); }, 1000);" style="background-color: #131520 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-    <div class="loader-wrapper" id="loader-box">
-		<span class="loader"><span class="loader-inner"></span></span>
-	</div>
+<body style="background-color: #131520 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
     <section class="bg-gray-50  bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="../" class="flex items-center mb-6 text-2xl font-semibold text-gray-900  text-white">
                 <img class="w-8 h-8 mr-2 rounded-full" src="../logo.png" alt="logo">
                 CodyGG    
             </a>
-            <div class="w-full bg-white rounded-lg shadow  border md:mt-0 sm:max-w-md xl:p-0  bg-gray-800  border-gray-700">
+            <div class="w-full rounded-lg shadow  border md:mt-0 sm:max-w-md xl:p-0  bg-gray-800  border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl  text-white">
                         Sign in to your account
@@ -78,73 +37,16 @@
                                   <label for="remember" class="text-gray-500  text-gray-300">Remember me</label>
                                 </div>
                             </div>
-                            <a href="#" class="text-sm font-medium text-primary-600 hover:underline  text-primary-500">Forgot password?</a>
+                            <a href="#" class="text-sm font-medium text-gray-500 hover:underline">Forgot password?</a>
                         </div>
-                        <button type="submit" onclick="createUserWithEmailAndPassword(auth, 'testing@gmail.com', 'moretesting')" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800 button-ripple">Sign in</button>
-                        <div id="g_id_onload"
-                            data-client_id="989080941546-42cn6g68fe61i304d64t3aoqmigcdj29.apps.googleusercontent.com"
-                            data-context="signin"
-                            data-ux_mode="popup"
-                            data-login_uri="https://codyggtesting.pages.dev/"
-                            data-auto_prompt="false">
-                        </div>
-                   
-                        <div class="g_id_signin"
-                            data-type="standard"
-                            data-shape="rectangular"
-                            data-theme="outline"
-                            data-text="signin_with"
-                            data-size="large"
-                            data-logo_alignment="left">
-                        </div>
+                        <button type="submit" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Sign in</button>
                         <p class="text-sm font-light text-gray-500  text-gray-400">
-                            Don't have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline  text-primary-500">Sign up</a>
+                            Don't have an account yet? <a href="signup.html" class="font-medium text-primary-600 hover:underline  text-primary-500">Sign up</a>
                         </p>
                     </form>
                 </div>
             </div>
         </div>
       </section>
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <script src="../button-ripple.js"></script>
-    <script>
-        // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getAuth } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyC0HAb2k0dP_xaSY6sb3tGL8VBmuZOmOS0",
-  authDomain: "startours-auth.firebaseapp.com",
-  projectId: "startours-auth",
-  storageBucket: "startours-auth.appspot.com",
-  messagingSenderId: "137128136698",
-  appId: "1:137128136698:web:00cb3392f092fd4a72de43",
-  measurementId: "G-PX0M3CSVCK"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
-    </script>
 </body>
 </html>
