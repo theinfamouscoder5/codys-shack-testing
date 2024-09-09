@@ -21,8 +21,22 @@
     <h1 class="text-6xl mt-8 ml-10 font-bold">
         Loading game...
     </h1>
-    <h1 class="text-2xl mt-4 ml-10 font-medium">
+    <p class="text-2xl mt-4 ml-10 font-medium">
         You're currently number <span id="currentqueue">null</span> out of <span id="queuemembers">null</span> in the game queue
-    </h1>
+    </p>
+
+    <p class="text-2xl mt-8 ml-10 font-medium">
+        Buy the day pass to skip the game queue
+    </p>
+
+    <script async
+        src="https://js.stripe.com/v3/buy-button.js">
+    </script>
+
+    <stripe-buy-button
+    buy-button-id="buy_btn_1Px8nLLUcMxw3jtOomEQ2AlP"
+    publishable-key="pk_test_51Lv0S8LUcMxw3jtOLXoIDmutuTKkIA58jncRUhH30hz0XmgBxQ9pGfffGEBIv4C2jCHG8QQhdSNq7ScpvnOjGu8q00KxJGH4WS"
+    class="ml-10">
+    </stripe-buy-button>
 </body>
 </html>
