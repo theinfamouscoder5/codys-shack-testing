@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games | Cody's Shack</title>
+    <style>
+        p {
+          text-align: center;
+          max-width: 600px;
+          margin: 20px auto;
+        }
+        button {
+          cursor: pointer;
+          background-color: #22c55e;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          border-radius: 20px;
+          margin-top: 20px;
+        }
+        .game-link {
+          height: 400px;
+          width: 300px;
+          text-decoration: none;
+        }
+        .game-tile {
+          background-color: #383333  ;
+          height: 330px;
+          width: 290px;
+          border-radius: 20px;
+          transition: transform 0.2s ease-in-out;
+          transition-duration: 0.4s;
+        }
+        .game-tile:hover {
+          transform: scale(1.03);
+          cursor: pointer;
+        }
+        .game-icon {
+          border-radius: 30px;
+          width: 210px;
+          height: 210px;
+          top: 5%;
+          position: relative;
+        }
+        .game-title {
+          font-size: 30px;
+          font-weight: bold;
+          color: #000000;
+          text-align: center;
+          margin: auto;
+          margin-top: 35px;
+        }
+        .flex-container {
+          display: flex;
+          flex-direction: row;
+          order: 0;
+          flex-grow: 0;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        }
+        .container {
+          padding: 10px;
+        }
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        .gameblur {
+          background-color: rgba(100, 100, 100, 0.4) !important;
+          -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+          -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+        .blur {
+          background-color: rgba(100, 100, 100, 0.4) !important;
+          -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+          padding: 20px;
+          border-radius: 20px;
+          -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+        }
+        .background {
+          background: url(https://res.cloudinary.com/mayashavin/image/upload/w_500,f_auto,q_auto/v1597000013/examples/cat_relaxing) no-repeat center;
+          background-size: cover;
+        }
+        
+        .glow-on-hover {
+          height: 50px;
+          border: none;
+          outline: none;
+          color: #fff;
+          background: #111;
+          cursor: pointer;
+          position: relative;
+          z-index: 0;
+          border-radius: 10px;
+        }
+  
+        .glow-on-hover:before {
+          content: '';
+          background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+          position: absolute;
+          top: -2px;
+          left:-2px;
+          background-size: 400%;
+          z-index: -1;
+          filter: blur(5px);
+          width: calc(100% + 4px);
+          height: calc(100% + 4px);
+          animation: glowing 20s linear infinite;
+          opacity: 0;
+          transition: opacity .3s ease-in-out;
+          border-radius: 10px;
+        }
+  
+        .glow-on-hover:active {
+          color: #000
+        }
+  
+        .glow-on-hover:active:after {
+          background: transparent;
+        }
+  
+        .glow-on-hover:hover:before {
+          opacity: 1;
+        }
+  
+        .glow-on-hover:after {
+          z-index: -1;
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: #111;
+          left: 0;
+          top: 0;
+          border-radius: 10px;
+        }
+  
+        @keyframes glowing {
+          0% { background-position: 0 0; }
+          50% { background-position: 400% 0; }
+          100% { background-position: 0 0; }
+        }
+      </style>
+</head>
+<body>
+    <script>
+        let games = [];
+      fetch("config/games.json")
+      .then((response) => response.json())
+      .then((data) => {
+        games = data;
+        const container = document.getElementById("game-container");
+        data.forEach((project) => {
+          const game = document.createElement("a");
+          game.href = project.link;
+            game.className = "game-link container";
+            game.innerHTML = `
+            <div class="game-tile gameblur">
+              <img class="game-icon" src="${project.imgSrc}" alt="icon" />
+              <p class="game-title">${project.title}</p>
+              </div>`;
+              container.appendChild(game);
+          });
+          document.getElementById("loader").style.display = "none";
+        })
+        .catch((error) => console.error("Error:", error));
+
+      function searchGames() {
+        const input = document.getElementById("search");
+        const filter = input.value.toUpperCase();
+        const container = document.getElementById("game-container");
+        container.innerHTML = "";
+        games
+          .filter((game) => game.title.toUpperCase().includes(filter))
+          .forEach((project) => {
+            const game = document.createElement("a");
+            game.href = project.link;
+            game.className = "game-link container";
+            game.innerHTML = `
+            <div class="game-tile gameblur">
+              <img class="game-icon" src="${project.imgSrc}" alt="icon" loading="lazy" />
+              <p class="game-title">${project.title}</p>
+              </div>`;
+            container.appendChild(game);
+          });
+        }
+        const backToTopButton = document.getElementById('back-to-top');
+        window.onscroll = function () {
+          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = "block";
+          } else {
+          backToTopButton.style.display = "none";
+        }
+      };
+
+      backToTopButton.onclick = function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      };
+    </script>
+</body>
+</html>

@@ -8,7 +8,6 @@
 body {
 background: #131520;
 overflow: hidden;
-font-family: monospace;
 color: #ffffff;
 }
 
@@ -18,94 +17,94 @@ font-size: 36px;
 }
 
 .images-line {
-display: flex;
-}
-.images-line .line {
-background-position: 50% 50%;
-background-size: cover;
-flex: none;
-height: 29vh;
-margin: clamp(10px, 2vw, 20px);
-width: 20vh;
-position: relative;
-transition: ease-in-out all 0.3s;
-border-radius: 1rem;
-}
-.images-line .line .img {
-position: absolute;
-z-index: 2;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-background-position: 50% 50%;
-background-size: cover;
-transition: ease-in-out all 0.3s;
-overflow: hidden;
-border-radius: 1rem;
-}
-.images-line .line:hover .img {
-cursor: pointer;
-transform: scale(1.1) translatez(0px);
-}
-.images-line .line:hover:after {
-filter: blur(35px) opacity(0.8);
-}
-.images-line .line:after {
-content: "";
-background: inherit;
-display: block;
-width: 100%;
-height: 100%;
-border-radius: 50%;
-top: 3vh;
-position: absolute;
-background-size: cover;
-z-index: -1;
-transition: ease-in-out all 0.3s;
-filter: blur(25px) opacity(0.8);
-}
-
-@-webkit-keyframes runner {
-to {
-transform: translateX(-10.4%);
-}
-}
-
-@keyframes runner {
-to {
-transform: translateX(-10.4%);
-}
-}
-/*Dev*/
-.dev {
-font-family: "Poppins", sans-serif;
-position: fixed;
-font-size: clamp(8px, 3vw, 14px);
-bottom: 1vw;
-left: 1vw;
-padding: 1em;
-color: #111;
-background-color: white;
-border-radius: 25px;
-cursor: pointer;
-z-index: 100;
-}
-.dev a {
-text-decoration: none;
-font-weight: bold;
-color: #111;
-transition: ease all 0.3s;
-}
-.dev a:hover {
-color: #ef5350;
-text-decoration: underline;
-}
-.dev span {
-display: inline-block;
-transition: ease all 0.3s;
-color: #ef5350;
-}
-.dev span:hover {
-transform: scale(1.2);
-}
+    display: flex;
+    }
+    .images-line .line {
+    background-position: 50% 50%;
+    background-size: cover;
+    flex: none;
+    height: 29vh;
+    margin: clamp(10px, 2vw, 20px);
+    width: 20vh;
+    position: relative;
+    transition: ease-in-out all 0.3s;
+    border-radius: 1rem;
+    }
+    .images-line .line .img {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-position: 50% 50%;
+    background-size: cover;
+    transition: ease-in-out all 0.3s;
+    overflow: hidden;
+    border-radius: 1rem;
+    }
+    .images-line .line:hover .img {
+    cursor: pointer;
+    transform: scale(1.1) translatez(0px);
+    }
+    .images-line .line:hover:after {
+    filter: blur(35px) opacity(0.8);
+    }
+    .images-line .line:after {
+    content: "";
+    background: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    top: 3vh;
+    position: absolute;
+    background-size: cover;
+    z-index: -1;
+    transition: ease-in-out all 0.3s;
+    filter: blur(25px) opacity(0.8);
+    }
+    
+    @-webkit-keyframes runner {
+    to {
+    transform: translateX(-10.4%);
+    }
+    }
+    
+    @keyframes runner {
+    to {
+    transform: translateX(-10.4%);
+    }
+    }
+    /*Dev*/
+    .dev {
+    font-family: "Poppins", sans-serif;
+    position: fixed;
+    font-size: clamp(8px, 3vw, 14px);
+    bottom: 1vw;
+    left: 1vw;
+    padding: 1em;
+    color: #111;
+    background-color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    z-index: 100;
+    }
+    .dev a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #111;
+    transition: ease all 0.3s;
+    }
+    .dev a:hover {
+    color: #ef5350;
+    text-decoration: underline;
+    }
+    .dev span {
+    display: inline-block;
+    transition: ease all 0.3s;
+    color: #ef5350;
+    }
+    .dev span:hover {
+    transform: scale(1.2);
+    }
