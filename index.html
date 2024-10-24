@@ -18,7 +18,7 @@
       .mainheader {
         padding-top: 200px;
         padding-left: 150px;
-        background-image: url('https://i.postimg.cc/NfXyLdfv/codys-shack-background.gif');
+        background-image: url('codys-shack-background.gif');
         background-size: cover;
         background-repeat: no-repeat;
         height: 500px;
@@ -85,7 +85,7 @@
                 <div class="flex space-x-4">
                   <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                   <a href="#memberships" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Membership</a>
-                  <a href="discover.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Games</a>
+                  <a href="games.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Games</a>
                   <a href="https://sites.google.com/view/cs-helpcenter/" target="blank" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
                   <a href="https://discord.gg/z5XBfQm5z8" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" target="blank">Discord</a>
                 </div>
@@ -99,7 +99,7 @@
           <div class="space-y-1 px-2 pb-3 pt-2">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="index.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Home</a>
-            <a href="discover.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Discover</a>
+            <a href="games.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Discover</a>
             <a href="allgames.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">All Games</a>
             <a href="discord.html" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Discord</a>
           </div>
@@ -144,7 +144,32 @@
             <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Choose your Membership</h2>
         </div>
-        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+
+
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-7xl">
+          <h3 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Classic Games Pass</h3>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Play classic games like Slope and Snow Rider 3D, no account required</p>
+          <a href="games.html" class="inline-flex items-center px-3 py-2 text-lg font-medium text-center text-white bg-indigo-800 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">
+              Start playing now
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+          </a>
+        </div>
+        <br>
+        <div class="p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 max-w-7xl">
+          <h5 class="mb-2 text-2xl tracking-tight font-bold dark:text-white">More memberships are coming soon!</h5>
+          <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">We are looking for <span class="font-bold">beta testers</span> to help us complete the <span class="font-bold">cloud gaming</span> part of our site.</p>
+          <a href="https://form.jotform.com/242973561751059" target="_blank" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-800 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">
+              Become a beta tester
+              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+          </a>
+        </div>
+        <br>
+        <br>
+        <!--<div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
               <h3 class="mb-4 text-2xl font-semibold">Free Pass</h3>
               <p class="font-light text-gray-500 sm:text-lg text-gray-400">Always free, forever. Includes up to 720p HD gaming.</p>
@@ -152,36 +177,36 @@
                   <span class="mr-2 text-5xl font-extrabold">$0.00</span>
                   <span class="text-gray-500  text-gray-400">/forever</span>
               </div>
-              <!-- List -->
+              
               <ul role="list" class="mb-8 space-y-4 text-left">
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>1 hour session time</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>Includes ads</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>Up to <span class="font-semibold">720p HD</span> gaming</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>Access to all game providers</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <br>
                   </li>
               </ul>
               <a href="auth/signup.html?membership=free" class="text-gray-300 border border-indigo-800 hover:border-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Start Playing</a>
           </div>
-          <!-- Pricing Card -->
+          
             <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow  border-gray-600 xl:p-8  bg-gray-800  text-white">
                 <h3 class="mb-4 text-2xl font-semibold">Day Pass</h3>
                 <p class="font-light text-gray-500 sm:text-lg  text-gray-400">For a day of ultimate gaming experience, up to 1080p HD.</p>
@@ -189,37 +214,37 @@
                     <span class="mr-2 text-5xl font-extrabold">$2.00</span>
                     <span class="text-gray-500  text-gray-400">/day</span>
                 </div>
-                <!-- List -->
+                 
                 <ul role="list" class="mb-8 space-y-4 text-left">
                     <li class="flex items-center space-x-3">
-                        <!-- Icon -->
+                         
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <span>3 hour session time</span>
                     </li>
                     <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <span>Little to no ads</span>
                     </li>
                     <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <span>Up to <span class="font-semibold">1080p HD</span> gaming</span>
                     </li>
                     <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <span>Access to all game providers</span>
                     </li>
                     <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                         <span>Priority in game queues</span>
                     </li>
                 </ul>
                 <a href="auth/signup.html?membership=day" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Get The Pass</a>
             </div>
-          <!-- Pricing Card -->
+        
           <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow  border-gray-600 xl:p-8  bg-gray-800  text-white">
               <h3 class="mb-4 text-2xl font-semibold">CodyPass</h3>
               <p class="font-light text-gray-500 sm:text-lg  text-gray-400">Get a month filled with the best gaming experience, complete with 4K gaming.</p>
@@ -227,37 +252,37 @@
                   <span class="mr-2 text-5xl font-extrabold">$20</span>
                   <span class="text-gray-500  text-gray-400">/month</span>
               </div>
-              <!-- List -->
+               
               <ul role="list" class="mb-8 space-y-4 text-left">
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span><span class="font-semibold">8 hour</span> session time</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span><span class="font-semibold">No</span> ads</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>Up to <span class="font-semibold">4320p 4K</span> gaming</span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span>Access to <span class="font-semibold">all game providers</span></span>
                   </li>
                   <li class="flex items-center space-x-3">
-                      <!-- Icon -->
+                       
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
                       <span><span class="font-semibold">Completely skip</span> game queues</span>
                   </li>
               </ul>
               <a href="auth/signup.html?membership=codypass" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Join Now</a>
           </div>
-      </div>
+      </div>-->
   </div>
       </section>
       </div>
@@ -301,7 +326,7 @@
                           <a href="index.html#memberships" class="hover:underline">Memberships</a>
                       </li>
                       <li>
-                          <a href="discover.html" class="hover:underline">Games</a>
+                          <a href="games.html" class="hover:underline">Games</a>
                       </li>
                   </ul>
               </div>

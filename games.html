@@ -32,8 +32,7 @@
         .game-tile {
           background-color: #383333  ;
           height: 330px;
-          width: 3000px;
-          max-width: calc(100% - 40px);
+          width: 280px;
           border-radius: 20px;
           transition: transform 0.2s ease-in-out;
           transition-duration: 0.4s;
@@ -47,16 +46,17 @@
           border-radius: 30px;
           width: 210px;
           height: 210px;
-          top: 5%;
+          top: 10%;
           position: relative;
+          margin: auto;
         }
         .game-title {
           font-size: 30px;
           font-weight: bold;
-          color: #000000;
+          color: hsl(0, 0%, 100%);
           text-align: center;
           margin: auto;
-          margin-top: 35px;
+          margin-top: 50px;
         }
         .flex-container {
           display: flex;
@@ -108,7 +108,7 @@
       .mainheader {
         padding-top: 200px;
         padding-left: 150px;
-        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://images.alphacoders.com/132/1326064.jpeg);
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://i-fixed-cody-shack.pages.dev/snowrider-banner.png);
         background-size: cover;
         background-repeat: no-repeat;
         height: 500px;
@@ -155,7 +155,7 @@
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#memberships" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Membership</a>
+              <a href="index.html#memberships" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Membership</a>
               <a href="games.html" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Games</a>
               <a href="https://sites.google.com/view/cs-helpcenter/" target="blank" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Support</a>
               <a href="https://discord.gg/z5XBfQm5z8" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" target="blank">Discord</a>
@@ -208,7 +208,7 @@
 
     
     <div id="loader" style="display: block; border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 2s linear infinite; margin: auto; margin-top: 1rem;"></div>
-    <div id="game-container" class="flex-container"></div>
+    <div id="game-container" class="flex flex-row" style="display: inline-block;"></div>
 
     <footer class="bg-gray-900">
       <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
@@ -276,78 +276,7 @@
         </div>
       </div>
   </footer>
-  <script>
-    window.addEventListener('load', onLoad);
   
-    function sleep(milliseconds) {
-      var start = new Date().getTime();
-      for (var i = 0; i < 1e7; i++) {
-        if ((new Date().getTime() - start) > milliseconds){
-          break;
-        }
-      }
-    }
-  
-    function onLoad () {
-      const headermain = document.getElementById('header-main');
-      const headersub = document.getElementById('header-sub');
-  
-      const header1 = "Play Fortnite<sup>®</sup> through Cody's Shack";
-      const header2 = "Play War Thunder<sup>®</sup> through Cody's Shack";
-      const header3 = "Play Roblox<sup>®</sup> through Cody's Shack"
-      const header4 = "Play Planet Coaster<sup>®</sup> through Cody's Shack"
-  
-      const subheader1 = "Connect your Steam or Epic Games account to Cody's Shack to play now";
-      const subheader2 = "Connect your Steam account to Cody's Shack to play now";
-      const subheader3 = "Connect your Roblox account to Cody's Shack to play now";
-      const subheader4 = "Connect your Steam account to Cody's Shack to play now";
-  
-      let currentheader = header1;
-      let currentsubheader = header2;
-  
-      var i = 1;                  //  set your counter to 1
-    
-      function myLoop() {         //  create a loop function
-        setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-            //  your code here
-  
-          if(currentheader == null){
-            currentheader = header1;
-            headermain.innerHTML = currentheader;
-            currentsubheader = subheader1;
-            headersub.innerHTML = currentsubheader;
-          } else if(currentheader == header1){
-            currentheader = header2;
-            headermain.innerHTML = currentheader;
-            currentsubheader = subheader2;
-            headersub.innerHTML = currentsubheader;
-          } else if(currentheader == header2){
-            currentheader = header3;
-            headermain.innerHTML = currentheader;
-            currentsubheader = subheader3;
-            headersub.innerHTML = currentsubheader;
-          } else if(currentheader == header3){
-            currentheader = header4;
-            headermain.innerHTML = currentheader;
-            currentsubheader = subheader4;
-            headersub.innerHTML = currentsubheader;
-          } else if(currentheader == header4){
-            currentheader = header1;
-            headermain.innerHTML = currentheader;
-            currentsubheader = subheader1;
-            headersub.innerHTML = currentsubheader;
-          }
-  
-          i++;                    //  increment the counter
-          if (i < 999999999999999999) {           //  if the counter < 10, call the loop function
-            myLoop();             //  ..  again which will trigger another 
-          }                       //  ..  setTimeout()
-        }, 8000)
-      }
-  
-      myLoop();   
-    }
-  </script>
 
     <script>
         let games = [];
