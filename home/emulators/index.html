@@ -98,7 +98,7 @@
 </div>
 
 <div id="loaderFrame">
-
+    <iframe name="iFrameName"></iframe>
 </div>
 
 
@@ -158,9 +158,15 @@
       <script>
         const emu = new URLSearchParams(window.location.search).get('emucode');
 
+        function changeUrl() {
+            var site = "pokemonemerald/index.html";
+            document.getElementsByName('iFrameName')[0].src = site;
+        }
+
         if(emu !== null){
             if(emu == 1){
-                document.getElementById('loaderFrame').innerHTML('<iframe src="/pokemonemerald/index.html/" title="W3Schools Free Online Web Tutorials"></iframe>')
+                alert('loading');
+                changeUrl();
             }
         } else {
             window.location.href = "../emulators.html";
