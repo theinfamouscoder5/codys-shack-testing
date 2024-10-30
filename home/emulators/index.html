@@ -51,6 +51,17 @@
             .sidebar {padding-top: 15px;}
             .sidebar a {font-size: 18px;}
             }
+
+            body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+
+            #iFrame
+            {
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+            }
+
      </style>
      <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
@@ -96,10 +107,7 @@
         </svg>
     </button>
 </div>
-
-<div id="loaderFrame">
-    <iframe name="iFrameName"></iframe>
-</div>
+<iframe name="iFrameName" id="iFrame" width="100%" height="100%" frameborder="0"></iframe>
 
 
 
