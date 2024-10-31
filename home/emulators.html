@@ -192,9 +192,9 @@
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Continue playing</h2>
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-          <button onclick="toGame('1')"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg"></button>
-          <img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg">
-          <img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg">
+          <button onclick="toGame('0')" class="rounded-lg"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg"></button>
+          <button onclick="toGame('1')" class="rounded-lg"><img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg"></button>
+          <button onclick="toGame('1')" class="rounded-lg"><img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg"></button>
         </div>
         </div>
     </section>
@@ -270,68 +270,11 @@
         </div>
       </div>
   </footer>
-  
-
-    <script>
-        let games = [];
-      fetch("config/games.json")
-      .then((response) => response.json())
-      .then((data) => {
-        games = data;
-        const container = document.getElementById("game-container");
-        data.forEach((project) => {
-          const game = document.createElement("a");
-          game.href = project.link;
-            game.className = "game-link container";
-            game.innerHTML = `
-            <div class="game-tile gameblur">
-              <img class="game-icon" src="${project.imgSrc}" alt="icon" />
-              <p class="game-title">${project.title}</p>
-              </div>`;
-              container.appendChild(game);
-          });
-          document.getElementById("loader").style.display = "none";
-        })
-        .catch((error) => console.error("Error:", error));
-
-      function searchGames() {
-        const input = document.getElementById("search");
-        const filter = input.value.toUpperCase();
-        const container = document.getElementById("game-container");
-        container.innerHTML = "";
-        games
-          .filter((game) => game.title.toUpperCase().includes(filter))
-          .forEach((project) => {
-            const game = document.createElement("a");
-            game.href = project.link;
-            game.className = "game-link container";
-            game.innerHTML = `
-            <div class="game-tile gameblur">
-              <img class="game-icon" src="${project.imgSrc}" alt="icon" loading="lazy" />
-              <p class="game-title">${project.title}</p>
-              </div>`;
-            container.appendChild(game);
-          });
-        }
-        const backToTopButton = document.getElementById('back-to-top');
-        window.onscroll = function () {
-          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            backToTopButton.style.display = "block";
-          } else {
-          backToTopButton.style.display = "none";
-        }
-      };
-
-      backToTopButton.onclick = function () {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      };
-    </script>
 
     <script>
       function toGame(gamenum){
-        document.cookie = "loadEmuState=true; path=/;"
-        window.location.href = "emulators/?emucode="+gamenum;
+        document.cookie = "loadEmuAdState=true; path=/;"
+        window.location.href = "emulators/loadgame.html?emucode="+gamenum;
       }
     </script>
 </body>

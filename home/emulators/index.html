@@ -166,6 +166,11 @@
       <script>
         const emu = new URLSearchParams(window.location.search).get('emucode');
 
+        const games = [
+            'pokemonemerald',
+            'pokemonfirered'
+        ]
+
         function getCookieByName(name) {
             const cookies = document.cookie.split(';');
             for (let cookie of cookies) {
@@ -182,15 +187,18 @@
         }
 
         function changeUrl() {
-            var site = "pokemonemerald/index.html";
+            const game = games[emu];
+            const site = game + "/index.html";
             document.getElementsByName('iFrameName')[0].src = site;
         }
 
+        function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+        const isEmuNumber = isNumber(emu);
+
         if(emu !== null){
-            if(emu == 1){
+            if(isEmuNumber == true){
                 const gameLoadValid = getCookieByName('loadEmuState');
                 if(gameLoadValid == 'true'){
-                    alert('emulator loading');
                     delete_cookie('loadEmuState');
                     changeUrl();
                 } else {
