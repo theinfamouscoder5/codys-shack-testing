@@ -108,7 +108,7 @@
       .mainheader {
         padding-top: 200px;
         padding-left: 150px;
-        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(https://i-fixed-cody-shack.pages.dev/snowrider-banner.png);
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(pokemon-emerald-banner.png);
         background-size: cover;
         background-repeat: no-repeat;
         height: 500px;
@@ -179,8 +179,8 @@
 
   <div class="mainheader">
     <div class="max-w-7xl" style="text-align: left;">
-      <p class="text-5xl font-bold max-w-7xl" id="header-main">Play Classic Games through Cody's Shack</p>
-      <p class="text-2xl font-medium max-w-7xl" id="header-sub">Play classics like Slope and Snow Rider 3D, no account needed</p>
+      <p class="text-5xl font-bold max-w-7xl" id="header-main">Play Emulators through Cody's Shack</p>
+      <p class="text-2xl font-medium max-w-7xl" id="header-sub">Play games like Pokémon Emerald<sup>®</sup> and Star Fox<sup>®</sup> in your browser</p>
       <br>
       <a href="#continue-playing" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">Start playing</a>
     </div>
@@ -196,10 +196,16 @@
         <div class="float-child">
           <div class="blue"><input type="text" id="search" onkeyup="searchGames()" placeholder="Search for games..." style="width: 100%; font-size: 18px; padding: 6px 20px; margin: auto; border-radius: 5px; max-width: 600px; margin-bottom: 10px; display: inline; color: #000000;" /></div>
         </div>
+
+        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+          <button onclick="toGame('1')"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg"></button>
+          <img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg">
+          <img src='https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' class="max-w-sm rounded-lg">
+        </div>
         
       </div>
     <div class="max-w-screen-md mb-8 lg:mb-12">
-        
+
         
     </div>
     </div>
@@ -332,6 +338,13 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       };
+    </script>
+
+    <script>
+      function toGame(gamenum){
+        document.cookie = "loadEmuState=true; path=/;"
+        window.location.href = "emulators/?emucode="+gamenum;
+      }
     </script>
 </body>
 </html>

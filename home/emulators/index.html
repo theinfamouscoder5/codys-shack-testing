@@ -166,6 +166,21 @@
       <script>
         const emu = new URLSearchParams(window.location.search).get('emucode');
 
+        function getCookieByName(name) {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                cookie = cookie.trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+
         function changeUrl() {
             var site = "pokemonemerald/index.html";
             document.getElementsByName('iFrameName')[0].src = site;
@@ -173,8 +188,16 @@
 
         if(emu !== null){
             if(emu == 1){
-                alert('loading');
-                changeUrl();
+                const gameLoadValid = getCookieByName('loadEmuState');
+                if(gameLoadValid == 'true'){
+                    alert('emulator loading');
+                    delete_cookie('loadEmuState');
+                    changeUrl();
+                } else {
+                    window.location.href = "../emulators.html";
+                }
+            } else {
+                window.location.href = "../emulators.html";
             }
         } else {
             window.location.href = "../emulators.html";
