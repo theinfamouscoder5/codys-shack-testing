@@ -11,7 +11,7 @@
     <section class="bg-gray-50  bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="../" class="flex items-center mb-6 text-2xl font-semibold text-gray-900  text-white">
-                <img class="w-8 h-8 mr-2 rounded-full" src="../logo.png" alt="logo">
+                <img class="w-8 h-8 mr-2 rounded-full" src="../../logo.png" alt="logo">
                 Cody's Shack    
             </a>
             <div class="w-full rounded-lg shadow  border md:mt-0 sm:max-w-md xl:p-0  bg-gray-800  border-gray-700">
@@ -21,32 +21,77 @@
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="#">
                         <div>
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900  text-white">Your email</label>
-                            <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500" placeholder="name@company.com" required="">
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900  text-white">Username</label>
+                            <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500" placeholder="Username" required="">
                         </div>
                         <div>
                             <label for="password" class="block mb-2 text-sm font-medium text-gray-900  text-white">Password</label>
                             <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500" required="">
                         </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-start">
-                                <div class="flex items-center h-5">
-                                  <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300  bg-gray-700  border-gray-600  focus:ring-primary-600  ring-offset-gray-800" required="">
-                                </div>
-                                <div class="ml-3 text-sm">
-                                  <label for="remember" class="text-gray-500  text-gray-300">Remember me</label>
-                                </div>
-                            </div>
-                            <a href="#" class="text-sm font-medium text-gray-500 hover:underline">Forgot password?</a>
-                        </div>
-                        <button type="submit" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Sign in</button>
-                        <p class="text-sm font-light text-gray-500  text-gray-400">
-                            Don't have an account yet? <a href="signup.html" class="font-medium text-primary-600 hover:underline  text-primary-500">Sign up</a>
-                        </p>
+                        <button onclick="login()" id="loginButton" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Sign in</button>
+                        <button onclick="delete_cookie('loggedin')" id="deleteButton" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Delete all cookies</button>
                     </form>
                 </div>
             </div>
         </div>
       </section>
+
+      <script>
+        // Step 1: Fetch the JSON file
+        
+
+        function login(){
+            let user = document.getElementById('username').value;
+
+            fetch('users.json')
+            .then(response => response.json()) // Step 2: Parse the JSON data
+            .then(data => {
+                // Now 'data' is a JavaScript array or object
+                if (data.includes(user)) {
+                    let datanum = data.indexOf(user);
+                    checkpass(datanum);
+                } else {
+                    alert("Incorrect username.")
+                }
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+        }
+
+        function checkpass(datanum){
+            let pass = document.getElementById('password').value;
+
+            fetch('secrets.json')
+            .then(response => response.json()) // Step 2: Parse the JSON data
+            .then(data => {
+                // Now 'data' is a JavaScript array or object
+                if (data.includes(pass)) {
+                    if (data[datanum] == pass) {
+                        document.cookie = "loggedin=true; path=/;"
+                        console.log('Signed in');
+                        window.location.href = "../../home/private/";
+                    } else {
+                        alert("Incorrect password.")
+                    }
+                } else {
+                    alert("Incorrect password.")
+                }
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+        }
+
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+        });
+
+        document.getElementById('deleteButton').addEventListener('click', function(event) {
+            event.preventDefault();
+        });
+
+        function delete_cookie(name) {
+            document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            console.log('Deleted all cookies (signed out)');
+            alert('Deleted all cookies (signed out)');
+        }
+      </script>
 </body>
 </html>
