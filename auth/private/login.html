@@ -43,7 +43,7 @@
         function login(){
             let user = document.getElementById('username').value;
 
-            fetch('users.json')
+            fetch('https://lhgxn51zp962l9wa53m7.pages.dev/users.json')
             .then(response => response.json()) // Step 2: Parse the JSON data
             .then(data => {
                 // Now 'data' is a JavaScript array or object
@@ -60,7 +60,7 @@
         function checkpass(datanum){
             let pass = document.getElementById('password').value;
 
-            fetch('secrets.json')
+            fetch('https://lhgxn51zp962l9wa53m7.pages.dev/secrets.json')
             .then(response => response.json()) // Step 2: Parse the JSON data
             .then(data => {
                 // Now 'data' is a JavaScript array or object
