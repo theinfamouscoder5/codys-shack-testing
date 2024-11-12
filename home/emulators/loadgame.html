@@ -51,11 +51,8 @@
     </stripe-buy-button>
 
     <div id="ad-wrapper">
-        <div class="ad-container">
-            <video width="756" height="504" autoplay muted loop style="border-radius: 5px;">
-                <source id="ad1" src="../ads/loading.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="ad-container" id="ad-cont">
+            
             <p style="text-align: center;">Finish the advertisements to stay in the game queue</p>
         </div>
     </div>
@@ -84,7 +81,8 @@
         }
 
         function showAds(){
-
+            let videourl = '../ads/theatlasad.mp4'
+            document.getElementById('ad-cont').innerHTML = '<iframe src=”silence.mp3″ type=”audio/mp3″ allow=”autoplay” id=”audio” style=”display:none”></iframe><video width="756" height="504" loop style="border-radius: 5px;"><source id="ad1" src="'+videourl+'" type="video/mp4" controls>Your browser does not support the video tag.</video>'
         }
 
         function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
