@@ -83,6 +83,7 @@
         function showAds(){
             let videourl = '../ads/theatlasad.mp4'
             document.getElementById('ad-cont').innerHTML = '<iframe src=”silence.mp3″ type=”audio/mp3″ allow=”autoplay” id=”audio” style=”display:none”></iframe><video width="756" height="504" loop style="border-radius: 5px;"><source id="ad1" src="'+videourl+'" type="video/mp4" controls>Your browser does not support the video tag.</video>'
+            setTimeout(() => console.log("Ad complete"), 60000)
         }
 
         function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
