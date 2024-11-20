@@ -94,7 +94,8 @@
                 if(gameLoadValid == 'true'){
                     delete_cookie('loadEmuAdState');
                     showAds();
-                    document.getElementById('advertisementVideo').addEventListener('ended',completeLoad,false);
+                    completeLoad();
+                    //document.getElementById('advertisementVideo').addEventListener('ended',completeLoad,false);
                 } else {
                     window.location.href = "../emulators.html";
                 }
