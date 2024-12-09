@@ -129,13 +129,35 @@
         scale: 1.05;
       }
       
+      .game-link-container {
+        position: relative;
+        text-align: center;
+      }
+
       .game-link-text {
-        z-index: 5;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transition: all 250ms;
+        opacity: 0;
       }
+
+      .game-link-text:hover {
+        opacity: 1;
+        scale: 1.05;
+      }
+
+      .game-link-container:hover .image-darken {
+        opacity: 0.5;
+        scale: 1.05;
+      }
+
+      .game-link-container:hover .game-link-text {
+        opacity: 1;
+        scale: 1.05;
+      }
+
       </style>
 </head>
 <body onload="verify();">
@@ -209,18 +231,33 @@
         <div class="max-w-screen-md mb-8 lg:mb-12">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Continue playing</h2>
         </div>
-        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-          <button onclick="toGame('0')" class="rounded-lg"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg image-darken"><span class="game-link-text">Pokemon Emerald</span></button>
-          <button onclick="toGame('1')" class="rounded-lg"><img src='emulators/pokemonfirered/banner.jpg' class="max-w-sm rounded-lg image-darken"></button>
-          <button onclick="toGame('2')" class="rounded-lg"><img src='emulators/starfox/banner.jpg' class="max-w-sm rounded-lg image-darken"></button>
-        </div>
+        <div id="loader" style="display: block; border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 2s linear infinite; margin: auto; margin-top: 1rem;"></div>
+        <div id="game-container" class="flex flex-row" style="display: inline-block;"></div>
         </div>
     </section>
   </div>
 
+  <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+      <div class="max-w-screen-md mb-8 lg:mb-12">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Start playing now</h2>
+      </div>
+      <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+        <button onclick="toGame('0')" class="rounded-lg game-link-container"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg image-darken">
+          <span onclick="toGame('0')" style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">Pokémon Emerald<sup>®</sup></span>
+        </button>
+        <button onclick="toGame('1')" class="rounded-lg game-link-container"><img src='emulators/pokemonfirered/banner.jpg' class="max-w-sm rounded-lg image-darken">
+          <span onclick="toGame('1')" style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">Pokémon Fire Red<sup>®</sup></span>
+        </button>
+        <button onclick="toGame('2')" class="rounded-lg game-link-container"><img src='emulators/starfox/banner.jpg' class="max-w-sm rounded-lg image-darken">
+          <span onclick="toGame('2')" style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">Star Fox<sup>®</sup></span>
+        </button>
+      </div>
+      </div>
+  </section>
+  </div>
+
     
-    <div id="loader" style="display: block; border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 2s linear infinite; margin: auto; margin-top: 1rem;"></div>
-    <div id="game-container" class="flex flex-row" style="display: inline-block;"></div>
+    
 
     <footer class="bg-gray-900">
       <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
