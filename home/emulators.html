@@ -119,6 +119,23 @@
           float: left;
           padding: 20px;
       }  
+      
+      .image-darken {
+        transition: all 250ms;
+      }
+      
+      .image-darken:hover {
+        opacity: 0.5;
+        scale: 1.05;
+      }
+      
+      .game-link-text {
+        z-index: 5;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
       </style>
 </head>
 <body onload="verify();">
@@ -193,9 +210,9 @@
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Continue playing</h2>
         </div>
         <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-          <button onclick="toGame('0')" class="rounded-lg"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg"></button>
-          <button onclick="toGame('1')" class="rounded-lg"><img src='emulators/pokemonfirered/banner.jpg' class="max-w-sm rounded-lg"></button>
-          <button onclick="toGame('2')" class="rounded-lg"><img src='emulators/starfox/banner.jpg' class="max-w-sm rounded-lg"></button>
+          <button onclick="toGame('0')" class="rounded-lg"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg image-darken"><span class="game-link-text">Pokemon Emerald</span></button>
+          <button onclick="toGame('1')" class="rounded-lg"><img src='emulators/pokemonfirered/banner.jpg' class="max-w-sm rounded-lg image-darken"></button>
+          <button onclick="toGame('2')" class="rounded-lg"><img src='emulators/starfox/banner.jpg' class="max-w-sm rounded-lg image-darken"></button>
         </div>
         </div>
     </section>
