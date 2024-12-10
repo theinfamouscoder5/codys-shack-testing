@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulators | Cody's Shack</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/emulators/list.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
-     <script src="private/verify.js"></script>
+     <!--<script src="private/verify.js"></script>-->
     <style>
         p {
           max-width: 600px;
@@ -142,6 +143,24 @@
         transition: all 250ms;
         opacity: 0;
       }
+      
+      .game-link-text-nohover {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 250ms;
+        opacity: 1;
+      }
+      
+      .game-link-text-small-nohover {
+        position: absolute;
+        top: 57%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 250ms;
+        opacity: 1;
+      }
 
       .game-link-text:hover {
         opacity: 1;
@@ -231,15 +250,18 @@
         <div class="max-w-screen-md mb-8 lg:mb-12">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Continue playing</h2>
         </div>
-        <div id="loader" style="display: block; border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 2s linear infinite; margin: auto; margin-top: 1rem;"></div>
-        <div id="game-container" class="flex flex-row" style="display: inline-block;"></div>
+        <!--<div id="continue-playing-loader" style="display: block; border: 16px solid #f3f3f3; border-top: 16px solid #3498db; border-radius: 50%; width: 120px; height: 120px; animation: spin 2s linear infinite; margin: auto; margin-top: 1rem;"></div>-->
+        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+        <div id="contPlayOneDiv"></div>
+        <div id="contPlayTwoDiv"></div>
+        <div id="contPlayThreeDiv"></div> 
         </div>
     </section>
   </div>
 
   <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
       <div class="max-w-screen-md mb-8 lg:mb-12">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Start playing now</h2>
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white" id="startplaying">Start playing now</h2>
       </div>
       <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         <button onclick="toGame('0')" class="rounded-lg game-link-container"><img src='emulators/pokemonemerald/banner.jpg' class="max-w-sm rounded-lg image-darken">
@@ -327,10 +349,116 @@
   </footer>
 
     <script>
-      function toGame(gamenum){
-        document.cookie = "loadEmuAdState=true; path=/;"
-        window.location.href = "emulators/loadgame.html?emucode="+gamenum;
+      
+      function getCookieByName(name) {
+        const cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+          cookie = cookie.trim();
+          if (cookie.startsWith(name + '=')) {
+            return cookie.substring(name.length + 1);
+          }
+        }
+        return null;
       }
+      
+      function toGame(gamenum){
+        document.cookie = "loadEmuAdState=true; path=/;";
+        window.location.href = "emulators/loadgame.html?emucode="+gamenum;
+
+        let oldthree = getCookieFromName('previousEmuThree');
+        let oldtwo = getCookieFromName('previousEmuTwo');
+        let oldone = getCookieFromName('previousEmuOne');
+        
+        document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
+        document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        
+        document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+        
+        loadPreviousGames();
+      }
+      
+      function readTitleJson(rowIndex) {
+        return fetch('emulators/list.json')
+        .then(response => response.json())
+        .then(data => data[rowIndex]);
+      }
+      
+      function readImageJson(rowIndex) {
+        return fetch('emulators/images.json')
+        .then(response => response.json())
+        .then(data => data[rowIndex]);
+      }
+
+
+      
+      
+      
+      function loadPreviousGames(){
+        const gameOneContainer = document.getElementById('contPlayOneDiv');
+        const gameTwoContainer = document.getElementById('contPlayTwoDiv');
+        const gameThreeContainer = document.getElementById('contPlayThreeDiv');
+        
+        let previousGameOne = getCookieByName('previousEmuOne');
+        let previousGameTwo = getCookieByName('previousEmuTwo');
+        let previousGameThree = getCookieByName('previousEmuThree');
+        
+        let gameTitleOne;
+        let gameTitleTwo;
+        let gameTitleThree;
+        
+        let gamePicOne;
+        let gamePicTwo;
+        let gamePicThree;
+        
+        if (previousGameOne !== null){
+        
+        async function getTitleOne() {
+          gameTitleOne = await readTitleJson(previousEmuOne);
+        }
+        async function getTitleTwo() {
+          gameTitleTwo = await readTitleJson(previousEmuTwo);
+        }
+        async function getTitleThree() {
+          gameTitleThree = await readTitleJson(previousEmuThree);
+        }
+        
+        async function getGamePicOne() {
+          gamePicOne = await readImageJson(previousEmuOne);
+        } 
+        async function getGamePicTwo() {
+          gamePicTwo = await readImageJson(previousEmuTwo);
+        } 
+        async function getGamePicThree() {
+          gamePicThree = await readImageJson(previousEmuThree);
+        } 
+        
+        
+        getTitleOne().then(() => {
+          getGamePicOne().then(() => {
+            gameOneContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicOne+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleOne+'</span></button>';  
+          });
+        });
+        
+        getTitleTwo().then(() => {
+          getGamePicTwo().then(() => {
+            gameTwoContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicTwo+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleTwo+'</span></button>';  
+          });
+        });
+        
+        getTitleThree().then(() => {
+          getGamePicThree().then(() => {
+            gameThreeContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicThree+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleThree+'</span></button>';  
+          });
+        });
+        
+        } else {
+          gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
+        }
+        
+        
+      }
+      
+      loadPreviousGames();
     </script>
 </body>
-</html>
+</html0
