@@ -8,7 +8,7 @@
     <script src="/emulators/list.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
-     <script src="private/verify.js"></script>
+     <!--<script src="private/verify.js"></script>-->
     <style>
         p {
           max-width: 600px;
@@ -457,7 +457,7 @@
           getTitleOne().then(() => {
             getGamePicOne().then(() => {
               if(gameTitleOne !== null && gamePicOne !== null && gameTitleOne !== undefined && gamePicOne !== undefined){
-                gameOneContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicOne+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleOne+'</span></button>';  
+                gameOneContainer.innerHTML = '<button onclick="toGame('+previousGameOne+')" class="rounded-lg game-link-container"><img src="'+gamePicOne+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleOne+'</span></button>';  
               }
             });
           });
@@ -466,7 +466,7 @@
             getTitleTwo().then(() => {
               getGamePicTwo().then(() => {
                 if(gameTitleTwo !== null && gamePicTwo !== null && gameTitleTwo !== undefined && gamePicTwo !== undefined){
-                  gameTwoContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicTwo+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleTwo+'</span></button>';  
+                  gameTwoContainer.innerHTML = '<button onclick="toGame('+previousGameTwo+')" class="rounded-lg game-link-container"><img src="'+gamePicTwo+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleTwo+'</span></button>';  
                 }
               });
             });
@@ -476,7 +476,7 @@
             getTitleThree().then(() => {
               getGamePicThree().then(() => {
                 if(gameTitleThree !== null && gamePicThree !== null && gameTitleThree !== undefined && gamePicThree !== undefined){
-                  gameThreeContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicThree+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleThree+'</span></button>';  
+                  gameThreeContainer.innerHTML = '<button onclick="toGame('+previousGameThree+')" class="rounded-lg game-link-container"><img src="'+gamePicThree+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleThree+'</span></button>';  
                 }
               });
             });
