@@ -8,7 +8,7 @@
     <script src="/emulators/list.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
-     <!--<script src="private/verify.js"></script>-->
+     <script src="private/verify.js"></script>
     <style>
         p {
           max-width: 600px;
@@ -278,7 +278,7 @@
   </section>
   </div>
 
-    
+  <button onclick="delete_cookie('previousEmuOne');delete_cookie('previousEmuTwo');delete_cookie('previousEmuThree');alert('Deleted all present cookies');location.reload();" id="deleteButton" class="text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800 w-auto ml-24 mb-8">Delete all cookies (for testing only)</button>
     
 
     <footer class="bg-gray-900">
@@ -363,11 +363,31 @@
       
       function toGame(gamenum){
         document.cookie = "loadEmuAdState=true; path=/;";
-        window.location.href = "emulators/loadgame.html?emucode="+gamenum;
+        
 
-        let oldthree = getCookieFromName('previousEmuThree');
-        let oldtwo = getCookieFromName('previousEmuTwo');
-        let oldone = getCookieFromName('previousEmuOne');
+        let oldthree = getCookieByName('previousEmuThree');
+        let oldtwo = getCookieByName('previousEmuTwo');
+        let oldone = getCookieByName('previousEmuOne');
+
+        if (oldtwo !== null){
+          if (oldone !== null){
+            document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
+            document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        
+            document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
+            alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+          }
+        } else {
+          if (oldone !== null){
+            document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        
+            document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+            alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+          } else {
+            document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+            alert('set emu 1 to: '+getCookieByName('previousEmuOne'));
+          }
+        }
         
         document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
         document.cookie = "previousEmuTwo="+oldone+"; path=/;";
@@ -375,6 +395,7 @@
         document.cookie = "previousEmuOne="+gamenum+"; path=/;";
         
         loadPreviousGames();
+        window.location.href = "emulators/loadgame.html?emucode="+gamenum;
       }
       
       function readTitleJson(rowIndex) {
@@ -412,44 +433,54 @@
         
         if (previousGameOne !== null){
         
-        async function getTitleOne() {
-          gameTitleOne = await readTitleJson(previousEmuOne);
-        }
-        async function getTitleTwo() {
-          gameTitleTwo = await readTitleJson(previousEmuTwo);
-        }
-        async function getTitleThree() {
-          gameTitleThree = await readTitleJson(previousEmuThree);
-        }
-        
-        async function getGamePicOne() {
-          gamePicOne = await readImageJson(previousEmuOne);
-        } 
-        async function getGamePicTwo() {
-          gamePicTwo = await readImageJson(previousEmuTwo);
-        } 
-        async function getGamePicThree() {
-          gamePicThree = await readImageJson(previousEmuThree);
-        } 
-        
-        
-        getTitleOne().then(() => {
-          getGamePicOne().then(() => {
-            gameOneContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicOne+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleOne+'</span></button>';  
+          async function getTitleOne() {
+            gameTitleOne = await readTitleJson(previousGameOne);
+          }
+          async function getTitleTwo() {
+            gameTitleTwo = await readTitleJson(previousGameTwo);
+          }
+          async function getTitleThree() {
+            gameTitleThree = await readTitleJson(previousGameThree);
+          }
+          
+          async function getGamePicOne() {
+            gamePicOne = await readImageJson(previousGameOne);
+          } 
+          async function getGamePicTwo() {
+            gamePicTwo = await readImageJson(previousGameTwo);
+          } 
+          async function getGamePicThree() {
+            gamePicThree = await readImageJson(previousGameThree);
+          } 
+          
+          
+          getTitleOne().then(() => {
+            getGamePicOne().then(() => {
+              if(gameTitleOne !== null && gamePicOne !== null && gameTitleOne !== undefined && gamePicOne !== undefined){
+                gameOneContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicOne+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleOne+'</span></button>';  
+              }
+            });
           });
-        });
-        
-        getTitleTwo().then(() => {
-          getGamePicTwo().then(() => {
-            gameTwoContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicTwo+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleTwo+'</span></button>';  
-          });
-        });
-        
-        getTitleThree().then(() => {
-          getGamePicThree().then(() => {
-            gameThreeContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicThree+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleThree+'</span></button>';  
-          });
-        });
+          
+          if (previousGameTwo !== null) {
+            getTitleTwo().then(() => {
+              getGamePicTwo().then(() => {
+                if(gameTitleTwo !== null && gamePicTwo !== null && gameTitleTwo !== undefined && gamePicTwo !== undefined){
+                  gameTwoContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicTwo+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleTwo+'</span></button>';  
+                }
+              });
+            });
+          }
+
+          if (previousGameThree !== null) {
+            getTitleThree().then(() => {
+              getGamePicThree().then(() => {
+                if(gameTitleThree !== null && gamePicThree !== null && gameTitleThree !== undefined && gamePicThree !== undefined){
+                  gameThreeContainer.innerHTML = '<button class="rounded-lg game-link-container"><img src="'+gamePicThree+'" class="max-w-sm rounded-lg image-darken"><span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">'+gameTitleThree+'</span></button>';  
+                }
+              });
+            });
+          }
         
         } else {
           gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
@@ -457,8 +488,13 @@
         
         
       }
+
+      function delete_cookie(name) {
+        document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        console.log('Deleted all present cookies');
+      }
       
       loadPreviousGames();
     </script>
 </body>
-</html0
+</html>
