@@ -371,11 +371,22 @@
 
         if (oldtwo !== null){
           if (oldone !== null){
-            document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
-            document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+            if (gamenum !== oldthree && gamenum !== oldtwo && gamenum !== oldone){
+              document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
+              document.cookie = "previousEmuTwo="+oldone+"; path=/;";
         
-            document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
-            alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+              document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
+              alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+            } else {
+              if (gamenum !== oldone){
+                if (gamenum == oldtwo){
+                  document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
+                  document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+
+                  alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+                }
+              }
+            }
           }
         } else {
           if (oldone !== null){
