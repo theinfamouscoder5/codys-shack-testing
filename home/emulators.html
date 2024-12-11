@@ -365,9 +365,9 @@
         document.cookie = "loadEmuAdState=true; path=/;";
         
 
-        let oldthree = getCookieByName('previousEmuThree');
-        let oldtwo = getCookieByName('previousEmuTwo');
-        let oldone = getCookieByName('previousEmuOne');
+        const oldthree = getCookieByName('previousEmuThree');
+        const oldtwo = getCookieByName('previousEmuTwo');
+        const oldone = getCookieByName('previousEmuOne');
 
         if (oldtwo !== null){
           if (oldone !== null){
@@ -380,10 +380,10 @@
             } else {
               if (gamenum !== oldone){
                 if (gamenum == oldtwo){
-                  document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
                   document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+                  document.cookie = "previousEmuOne="+oldtwo+"; path=/;";
 
-                  alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+                  alert('set emu 2 to (2): '+getCookieByName('previousEmuTwo'));
                 }
               }
             }
