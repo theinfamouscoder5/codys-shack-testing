@@ -397,6 +397,7 @@
       function toGame(gamenum){
         try{
         document.cookie = "loadEmuAdState=true; path=/;";
+        if(localStorage.oldGames!==undefined){
         let oldGames = JSON.parse(localStorage.oldGames);
 
         const oldthree = oldGames[2];
@@ -414,6 +415,9 @@
             incGames.push(value);
           }
         });
+        }else{
+          oldGames.unshift(gamenum);
+        }
         localStorage.oldGames = JSON.stringify(oldGames);
         // if (oldtwo !== null){
         //   if (oldone !== null){
