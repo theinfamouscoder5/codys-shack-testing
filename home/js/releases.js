@@ -15,6 +15,7 @@ if(releaseContainer!==""&&releaseContainer!==null&&releaseContainer!==undefined)
           })
           .then((text)=>{
             releaseContainer.innerHTML = text;
+            document.getElementById('release-version').innerHTML = document.getElementById('rel-version').innerHTML;
           })
           .catch((err)=>{
             console.error(err.stack);
