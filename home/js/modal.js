@@ -50,7 +50,7 @@ class Modal {
         }
     }
 
-    close() {
+    /*close() {
         this.options.state = 'closed';
         this.options.element.classList.remove('open');
         this.options.element.style.display = 'none';
@@ -60,7 +60,21 @@ class Modal {
         if (this.options.onClose) {
             this.options.onClose(this);
         }
-    }
+    }*/
+    
+    close() {
+  this.options.state = 'closed';
+  this.options.element.classList.remove('open');
+  this.options.element.style.transition = 'opacity 0.2s ease'; // add transition property
+  this.options.element.style.opacity = '0'; // set opacity to 0
+  document.body.classList.remove('no-scroll');
+  if (this.options.onClose) {
+    this.options.onClose(this);
+  }
+  setTimeout(() => {
+    this.options.element.style.display = 'none';
+}, 200);
+}
 
     get state() {
         return this.options.state;
