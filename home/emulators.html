@@ -482,6 +482,7 @@
       
       
       function loadPreviousGames(){
+        try{
         const gameOneContainer = document.getElementById('contPlayOneDiv');
         const gameTwoContainer = document.getElementById('contPlayTwoDiv');
         const gameThreeContainer = document.getElementById('contPlayThreeDiv');
@@ -553,7 +554,9 @@
           gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
         }
         
-        
+      }catch(err){
+        alert(err.stack);
+      }
       }
 
       function delete_cookie(name) {
