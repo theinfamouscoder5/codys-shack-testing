@@ -5,6 +5,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="home/css/modal.css">
     <style>
       html {
         scroll-behavior: smooth;
@@ -19,7 +20,7 @@
         padding-top: 200px;
         padding-left: 150px;
         background-image: url('codys-shack-background.gif');
-        background-size: cover;
+        background-size: cover; 
         background-repeat: no-repeat;
         height: 500px;
       }
@@ -310,6 +311,28 @@
       }
     }
   </script>
+  <div class="modal myModal">
+    <div class="container rounded">
+        <div class="header">
+            <h1 class="text-2xl">Release highlights</h1>
+            <button class="close">&times;</button> 
+        </div>
+        <hr class="h-1 rounded w-96 mx-auto my-8 border-0" style="background-color: #1b1b1b;">
+        <div class="content ml-6" style="color: #ffffff;">
+            What's new in <b>Cody's Shack <span id="release-version"></span></b>
+            <br>
+            <br>
+            <div id="release-content" style=" max-height: calc(80vh - 225px); overflow: auto;">
+            
+              Lorem ispum sit amet...
+            </div>
+        </div>
+        <div class="footer">
+            <button style="width: 112px; height: 34px;" class="close absolute right-4 bottom-4 text-lg font-medium text-center text-white bg-indigo-800 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">Close</button>
+            <span class="text-lg absolute bottom-4">Scroll down 👇</span>
+        </div>
+    </div>
+  </div>
 <footer class="bg-gray-900">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
@@ -376,6 +399,8 @@
       </div>
     </div>
 </footer>
-
+<script src="home/js/modal.js"></script>
+<script src="home/js/releases-modal.js"></script>
+<script src="home/js/releases.js"></script>
   </body>
 </html>

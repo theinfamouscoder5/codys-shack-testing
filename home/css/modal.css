@@ -68,7 +68,7 @@
   padding: 15px;
   display: flex;
 }
-.modal .container .footer button {
+/*.modal .container .footer button {
   display: inline-flex;
   appearance: none;
   border: none;
@@ -96,7 +96,7 @@
 }
 .modal .container .footer button.right {
   margin-left: auto;
-}
+}*/
 .modal.small .container {
   width: 400px;
 }

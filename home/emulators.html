@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emulators | Cody's Shack</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/emulators/list.js"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
      <link rel="stylesheet" href="css/modal.css">
@@ -481,7 +480,7 @@
       
       
       
-      function loadPreviousGames(){
+      /*function loadPreviousGames(){
         try{
         const gameOneContainer = document.getElementById('contPlayOneDiv');
         const gameTwoContainer = document.getElementById('contPlayTwoDiv');
@@ -558,6 +557,54 @@
         alert(err.stack);
       }
       }
+      */
+
+      function loadPreviousGames() {
+        try {
+          const gameOneContainer = document.getElementById('contPlayOneDiv');
+          const gameTwoContainer = document.getElementById('contPlayTwoDiv');
+          const gameThreeContainer = document.getElementById('contPlayThreeDiv');
+          const oldGames = localStorage.getItem('oldGames');
+          const previousGames = JSON.parse(oldGames);
+
+          gameOneContainer.innerHTML = '';
+          gameTwoContainer.innerHTML = '';
+          gameThreeContainer.innerHTML = '';
+
+          if (previousGames.length > 0) {
+            for (let i = 0; i < previousGames.length; i++) {
+              const game = previousGames[i];
+              async function getTitle() {
+                const gameTitle = await readTitleJson(game);
+                return gameTitle;
+              }
+              async function getGamePic() {
+                const gamePic = await readImageJson(game);
+                return gamePic;
+              }
+              getTitle().then((title) => {
+                getGamePic().then((pic) => {
+                  const gameHTML = `<button onclick="toGame('${game}')" class="rounded-lg game-link-container">
+                    <img src="${pic}" class="max-w-sm rounded-lg image-darken">
+                    <span style="cursor: pointer;" class="game-link-text text-4xl w-full font-bold">${title}</span>
+                  </button>`;
+                  if (i === 0) {
+                    gameOneContainer.innerHTML = gameHTML;
+                  } else if (i === 1) {
+                    gameTwoContainer.innerHTML = gameHTML;
+                  } else if (i === 2) {
+                    gameThreeContainer.innerHTML = gameHTML;
+                  }
+                });
+              });
+            }
+          } else {
+            gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
+          }
+        } catch (err) {
+          alert(err.stack);
+        }
+      }
 
       function delete_cookie(name) {
         document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
@@ -569,8 +616,7 @@
 
 <script src="js/modal.js"></script>
 <script>
-  Modal.initElements();
-  let myModal = new Modal({ element: document.querySelector('.myModal') });
+  
   
   function getCookieByName(name) {
     const cookies = document.cookie.split(';');
@@ -584,16 +630,7 @@
   }
   
 
-function verifyRelease(){
-    const currentId = document.getElementById('rel-id').innerHTML;
-    const acceptedId = getCookieByName('releaseAcceptedId');
-    
-    if (acceptedId !== currentId){
-      myModal.open();
-    }
-}
 
-const myTimeout = setTimeout(verifyRelease, 2000);
 
   /*if (getCookieById(releaseAcceptedId) == null){
     const currentId = document.getElementById('rel-version');
@@ -604,6 +641,7 @@ const myTimeout = setTimeout(verifyRelease, 2000);
   }  */
 </script>
 
+<script src="js/releases-modal.js"></script>
 <script src="js/releases.js"></script>
 </body>
 </html>
