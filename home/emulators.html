@@ -396,47 +396,59 @@
       
       function toGame(gamenum){
         document.cookie = "loadEmuAdState=true; path=/;";
-        
+        let oldGames = JSON.parse(localStorage.oldGames);
 
-        const oldthree = getCookieByName('previousEmuThree');
-        const oldtwo = getCookieByName('previousEmuTwo');
-        const oldone = getCookieByName('previousEmuOne');
-
-        if (oldtwo !== null){
-          if (oldone !== null){
-            if (gamenum !== oldthree && gamenum !== oldtwo && gamenum !== oldone){
-              document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
-              document.cookie = "previousEmuTwo="+oldone+"; path=/;";
-        
-              document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
-              alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
-            } else {
-              if (gamenum !== oldone){
-                if (gamenum == oldtwo){
-                  document.cookie = "previousEmuTwo="+oldone+"; path=/;";
-                  document.cookie = "previousEmuOne="+oldtwo+"; path=/;";
-
-                  alert('set emu 2 to (2): '+getCookieByName('previousEmuTwo'));
-                }
-              }
-            }
+        const oldthree = oldGames[2];
+        const oldtwo = oldGames[1];
+        const oldone = oldGames[0];
+        // const oldthree = getCookieByName('previousEmuThree');
+        // const oldtwo = getCookieByName('previousEmuTwo');
+        // const oldone = getCookieByName('previousEmuOne');
+        oldGames.unshift(gamenum);
+        let incGames = [];
+        oldGames.forEach((value,index,array) => {
+          if(incGames.includes(value)){
+            oldGames.splice(index,1);
+          }else{
+            incGames.push(value);
           }
-        } else {
-          if (oldone !== null){
-            document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        });
+        localStorage.oldGames = JSON.stringify(oldGames);
+        // if (oldtwo !== null){
+        //   if (oldone !== null){
+        //     if (gamenum !== oldthree && gamenum !== oldtwo && gamenum !== oldone){
+        //       document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
+        //       document.cookie = "previousEmuTwo="+oldone+"; path=/;";
         
-            document.cookie = "previousEmuOne="+gamenum+"; path=/;";
-            alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
-          } else {
-            document.cookie = "previousEmuOne="+gamenum+"; path=/;";
-            alert('set emu 1 to: '+getCookieByName('previousEmuOne'));
-          }
-        }
+        //       document.cookie = "previousEmuOne="+gamenum+"; path=/;"; 
+        //       alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+        //     } else {
+        //       if (gamenum !== oldone){
+        //         if (gamenum == oldtwo){
+        //           document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        //           document.cookie = "previousEmuOne="+oldtwo+"; path=/;";
+
+        //           alert('set emu 2 to (2): '+getCookieByName('previousEmuTwo'));
+        //         }
+        //       }
+        //     }
+        //   }
+        // } else {
+        //   if (oldone !== null){
+        //     document.cookie = "previousEmuTwo="+oldone+"; path=/;";
         
-        document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
-        document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        //     document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+        //     alert('set emu 2 to: '+getCookieByName('previousEmuTwo'));
+        //   } else {
+        //     document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+        //     alert('set emu 1 to: '+getCookieByName('previousEmuOne'));
+        //   }
+        // }
         
-        document.cookie = "previousEmuOne="+gamenum+"; path=/;";
+        // document.cookie = "previousEmuThree="+oldtwo+"; path=/;";
+        // document.cookie = "previousEmuTwo="+oldone+"; path=/;";
+        
+        // document.cookie = "previousEmuOne="+gamenum+"; path=/;";
         
         loadPreviousGames();
         window.location.href = "emulators/loadgame.html?emucode="+gamenum;
@@ -462,10 +474,10 @@
         const gameOneContainer = document.getElementById('contPlayOneDiv');
         const gameTwoContainer = document.getElementById('contPlayTwoDiv');
         const gameThreeContainer = document.getElementById('contPlayThreeDiv');
-        
-        let previousGameOne = getCookieByName('previousEmuOne');
-        let previousGameTwo = getCookieByName('previousEmuTwo');
-        let previousGameThree = getCookieByName('previousEmuThree');
+        let oldGames = localStorage.oldGames;
+        let previousGameOne = oldGames[0];
+        let previousGameTwo = oldGames[1];
+        let previousGameThree = oldGames[3];
         
         let gameTitleOne;
         let gameTitleTwo;
