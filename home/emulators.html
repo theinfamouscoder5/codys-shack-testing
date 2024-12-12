@@ -396,9 +396,10 @@
       
       function toGame(gamenum){
         try{
+        let oldGames;
         document.cookie = "loadEmuAdState=true; path=/;";
         if(localStorage.oldGames!==undefined){
-        let oldGames = JSON.parse(localStorage.oldGames);
+        oldGames = JSON.parse(localStorage.oldGames);
 
         const oldthree = oldGames[2];
         const oldtwo = oldGames[1];
@@ -418,7 +419,7 @@
         }else{
 
           // oldGames.unshift(gamenum);
-          let oldGames = [gamenum];
+           oldGames = [gamenum];
         }
         localStorage.oldGames = JSON.stringify(oldGames);
         // if (oldtwo !== null){
