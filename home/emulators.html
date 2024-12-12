@@ -416,7 +416,9 @@
           }
         });
         }else{
-          oldGames.unshift(gamenum);
+
+          // oldGames.unshift(gamenum);
+          let oldGames = [gamenum];
         }
         localStorage.oldGames = JSON.stringify(oldGames);
         // if (oldtwo !== null){
