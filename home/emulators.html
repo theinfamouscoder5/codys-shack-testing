@@ -395,6 +395,7 @@
       }
       
       function toGame(gamenum){
+        try{
         document.cookie = "loadEmuAdState=true; path=/;";
         let oldGames = JSON.parse(localStorage.oldGames);
 
@@ -452,6 +453,9 @@
         
         loadPreviousGames();
         window.location.href = "emulators/loadgame.html?emucode="+gamenum;
+        }catch(err){
+          alert(err.stack);
+        }
       }
       
       function readTitleJson(rowIndex) {
