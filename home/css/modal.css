@@ -121,3 +121,17 @@
   transform: translateY(0);
   transition: all 0.5s ease;
 }
+
+.up-down-animate {
+  animation: MoveUpDown 2s linear infinite;
+  position: absolute;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    transform: translateY(4px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

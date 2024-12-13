@@ -245,7 +245,7 @@
 
   <div class="mainheader">
     <div class="max-w-7xl" style="text-align: left;">
-      <p class="text-5xl font-bold max-w-7xl" id="header-main">Play Emulators through Cody's Shack</p>
+      <p class="text-5xl font-bold max-w-7xl" id="header-main">Play Emulated Games through Cody's Shack</p>
       <p class="text-2xl font-medium max-w-7xl" id="header-sub">Play games like Pokémon Emerald<sup>®</sup> and Star Fox<sup>®</sup> in your browser</p>
       <br>
       <a href="#continue-playing" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">Start playing</a>
@@ -286,7 +286,7 @@
   </div>
 
   <button onclick="delete_cookie('previousEmuOne');delete_cookie('previousEmuTwo');delete_cookie('previousEmuThree');delete_cookie('releaseAcceptedId');alert('Deleted all present cookies');location.reload();" id="deleteButton" class="text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800 w-auto ml-24 mb-8">Delete all cookies (for testing only)</button>
-    
+  <button onclick="localStorage.clear();alert('Cleared localstorage');location.reload();" id="deleteButton" class="text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800 w-auto ml-24 mb-8">Clear localstorage (for testing only)</button>
   <!--<a href="#" data-modal=".myModal">Open Modal</a>-->
 
 <div class="modal myModal">
@@ -307,7 +307,7 @@
         </div>
         <div class="footer">
             <button style="width: 112px; height: 34px;" class="close absolute right-4 bottom-4 text-lg font-medium text-center text-white bg-indigo-800 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">Close</button>
-            <span class="text-lg absolute bottom-4">Scroll down 👇</span>
+            <span class="text-lg absolute bottom-4">Scroll down <span class="up-down-animate">👇</span></span>
         </div>
     </div>
 </div>
@@ -571,8 +571,13 @@
           gameTwoContainer.innerHTML = '';
           gameThreeContainer.innerHTML = '';
 
-          if (previousGames.length > 0) {
-            for (let i = 0; i < previousGames.length; i++) {
+          
+          if (previousGames === null || previousGames.length === 0) {
+              // Show the default message
+              gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
+          } else {
+              // Show the games
+              for (let i = 0; i < previousGames.length; i++) {
               const game = previousGames[i];
               async function getTitle() {
                 const gameTitle = await readTitleJson(game);
@@ -598,9 +603,16 @@
                 });
               });
             }
-          } else {
-            gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
           }
+
+          /*if (previousGames.length > 0) {
+            
+          } else {
+            if (previousGames.length === 0) {
+    gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
+  }
+            //gameOneContainer.innerHTML = '<a href="#startplaying"><button class="rounded-lg game-link-container"><img src="../codys-shack-background-static.png" class="max-w-sm rounded-lg image-darken" style="opacity: 0.5"><span style="cursor: pointer;" class="game-link-text-nohover text-4xl w-full font-bold">Play some games,</span><span style="cursor: pointer;" class="game-link-text-small-nohover text-2xl w-full font-bold">they will show up here!</span></button></a>';
+          }*/
         } catch (err) {
           alert(err.stack);
         }
