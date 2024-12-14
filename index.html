@@ -6,6 +6,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9980078383965223"
      crossorigin="anonymous"></script>
      <link rel="stylesheet" href="home/css/modal.css">
+     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <style>
       html {
         scroll-behavior: smooth;
@@ -106,14 +107,77 @@
           </div>
         </div>
       </nav>
-      <div class="mainheader">
-        <div>
-          <p class="text-5xl font-bold">The next era of gaming</p>
-          <p class="text-2xl font-medium">From ultimate cloud-gaming to classic Nintendo games, we've got it all</p>
+
+
+
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide" style="height: 500px;">
+  <!-- Carousel wrapper -->
+  <div class="relative overflow-hidden rounded-lg" style="height: 500px;">
+       <!-- Item 1 -->
+      <div class="hidden duration-700 ease-in-out" data-carousel-item style="height: 500px; background-image: linear-gradient(to bottom, transparent, #000000), url('codys-shack-background.gif'); background-size: cover; background-repeat: no-repeat;">
+          <!--<img src="codys-shack-background.gif" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">-->
+          <div style="margin-top: 190px; padding-left: 150px;">
+            <p class="text-5xl font-bold">The next era of gaming</p>
+            <p class="text-2xl font-medium">From ultimate cloud-gaming to classic Nintendo games, we've got it all</p>
+            <br>
+            <a href="#memberships" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">Play Now</a>
+          </div>
+      </div>
+
+      <div class="hidden duration-700 ease-in-out" data-carousel-item style="height: 500px; background-image: linear-gradient(to bottom, transparent, #000000), url('snowrider-banner.png'); background-size: cover; background-repeat: no-repeat;">
+        <div style="margin-top: 190px; padding-left: 150px;">
+          <p class="text-5xl font-bold" id="header-main">Play Classic Games through Cody's Shack</p>
+          <p class="text-2xl font-medium" id="header-sub">Play classics like Slope and Snow Rider 3D, no account needed</p>
           <br>
-          <a href="#memberships" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">PLAY NOW</a>
+          <a href="games.html" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">Play now</a>
         </div>
       </div>
+      
+      <div class="hidden duration-700 ease-in-out" data-carousel-item style="height: 500px; background-image: linear-gradient(to bottom, transparent, #000000), url('https://images.alphacoders.com/132/1326064.jpeg'); background-size: cover; background-repeat: no-repeat;">
+        <div style="margin-top: 190px; padding-left: 150px;">
+          <p class="text-5xl font-bold" id="header-main">Play Fortnite<sup>®</sup> through Cody's Shack</p>
+          <p class="text-2xl font-medium" id="header-sub">Connect your Steam or Epic Games account to Cody's Shack to play now</p>
+          <br>
+          <button href="" class="text-gray-300 bg-indigo-900 rounded-md px-5 py-3 text-2xl font-medium" disabled>Coming soon</button>
+        </div>
+      </div>
+      
+      <div class="hidden duration-700 ease-in-out" data-carousel-item style="height: 500px; background-image: linear-gradient(to bottom, transparent, #000000), url('home/pokemon-emerald-banner.png'); background-size: cover; background-repeat: no-repeat;">
+        <div style="margin-top: 190px; padding-left: 150px;">
+          <p class="text-5xl font-bold" id="header-main">Play on Emulators through Cody's Shack</p>
+          <p class="text-2xl font-medium" id="header-sub">Play games like Pokémon Emerald<sup>®</sup> and Star Fox<sup>®</sup> in your browser</p></p>
+          <br>
+          <a href="https://forms.gle/YiA16MYrtuZLKFUG6" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-3 text-2xl font-medium">Sign up for Beta Testing</a>
+          <p class="mt-1 text-xs font-normal text-gray-400 mt-4">By submitting the Cody's Shack Beta Tester form, you agree to our <a href="terms.html" class="text-indigo-500 hover:text-indigo-300">terms & conditions</a> and <a href="privacy.html" class="text-indigo-500 hover:text-indigo-300">privacy policy</a></p>
+        </div>
+      </div>
+  </div>
+  <!-- Slider indicators -->
+  <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+      <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+  </div>
+  <!-- Slider controls -->
+  <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+          <span class="sr-only">Previous</span>
+      </span>
+  </button>
+  <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+      <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+          <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+          <span class="sr-only">Next</span>
+      </span>
+  </button>
+</div>
       <br>
       <br>
       <div class="game-icons">
@@ -158,7 +222,7 @@
           </a>
         </div>
         <br>
-        <div class="p-6 border rounded-lg shadow bg-gray-800 border-gray-700 max-w-7xl">
+        <div class="p-6 border rounded-lg shadow bg-gray-800 border-gray-700 max-w-7xl" id="beta-testing">
           <h5 class="mb-2 text-2xl tracking-tight font-bold text-white">More memberships are coming soon!</h5>
           <p class="mb-3 font-normal text-gray-400">We are looking for <span class="font-bold">beta testers</span> to help us complete the <span class="font-bold">cloud gaming</span> part of our site.</p>
           <a href="https://forms.gle/YiA16MYrtuZLKFUG6" target="_blank" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-800 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">
@@ -402,5 +466,6 @@
 <script src="home/js/modal.js"></script>
 <script src="home/js/releases-modal.js"></script>
 <script src="home/js/releases.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
   </body>
 </html>
