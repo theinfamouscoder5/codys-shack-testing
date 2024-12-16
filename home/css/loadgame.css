@@ -1,2 +1,56 @@
+.sidebar-container {
+  margin-top: 3rem;
+  margin-left: 3.4rem;
+  transition: 500ms;
+}
 
-
+.sidebar-container:hover {
+  margin-top: 2rem;
+  margin-left: 2.5rem;
+}
+
+.game-load-title {
+  font-size: 2.75rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  transition: 500ms;
+}
+
+.game-load-title:hover {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+.gamers-ahead-text {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.upgrade-title {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.upgrade-list {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+.buy-button {
+  color: rgb(209 213 219);
+  background-color: rgb(55 48 163);
+  border-radius: 0.25rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+}
+
+.buy-button:hover {
+  color: rgb(255 255 255);
+  background-color: rgb(67 56 202);
+}
