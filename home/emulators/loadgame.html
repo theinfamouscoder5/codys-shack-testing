@@ -9,6 +9,7 @@
      crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="../css/loadingbar.css">
+    <link rel="stylesheet" href="../css/loadgame.css">
 
     <style>
         body {
@@ -31,28 +32,56 @@
      </style>
 </head>
 <body>
-    <div class="mt-8 ml-10">
-        <h1 class="text-4xl font-bold">
+    <div class="sidebar-container">
+        <!--<h1 class="text-4xl font-bold game-load-title">
             Loading your game...
         </h1>
         <br>
-        <p class="text-xl" id="gamers-ahead-box">Gamers ahead of you: <b><span id="gamers-ahead-count">0</span></b></p>
+        <p class="text-xl gamers-ahead-text" id="gamers-ahead-text-box">Gamers ahead of you: <b><span class="gamers-ahead-count-text" id="gamers-ahead-count-box">0</span></b></p>
         <br>
         <div id="loadingProgressG">
             <div id="loadingProgressG_1" class="loadingProgressG"></div>
         </div>
         <br>
         <br>
-        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Upgrade to Day Pass</a>
+        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Upgrade to Day Pass</a>
         <br>
         <br>
-        <p class="text-lg">Upgrade for shorter queues and get:</p>
-        <ul class="list-disc ml-8">
+        <p class="text-lg upgrade-title">Upgrade for shorter queues and get:</p>
+        <ul class="list-disc ml-8 upgrade-list">
             <li>Up to <b>8 hour</b> game session times</li>
             <li><b>Little</b> to <b>no</b> ads</li>
             <li><b>Priority</b> in game queues</li>
             <li><b>Better quality</b> gaming, up to <b>4K</b></li>
         </ul>
+        <br>
+        <br>
+        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Load ads</a>-->
+        
+        <h1 class="game-load-title">
+            Loading your game...
+        </h1>
+        <br>
+        <p class="gamers-ahead-text" id="gamers-ahead-text-box">Gamers ahead of you: <b><span class="gamers-ahead-count-text" id="gamers-ahead-count-box">0</span></b></p>
+        <br>
+        <div id="loadingProgressG">
+            <div id="loadingProgressG_1" class="loadingProgressG"></div>
+        </div>
+        <br>
+        <br>
+        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button">Upgrade to Day Pass</a>
+        <br>
+        <br>
+        <p class="upgrade-title">Upgrade for shorter queues and get:</p>
+        <ul class="upgrade-list">
+            <li>Up to <b>8 hour</b> game session times</li>
+            <li><b>Little</b> to <b>no</b> ads</li>
+            <li><b>Priority</b> in game queues</li>
+            <li><b>Better quality</b> gaming, up to <b>4K</b></li>
+        </ul>
+        <br>
+        <br>
+        <a onclick="applyHoverClasses();" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Load ads</a>
     </div>
 
     
@@ -122,5 +151,15 @@
         }
 
     </script>-->
+    
+    <script>
+    function applyHoverClasses() {
+      const sidebarContainer = document.querySelector('.sidebar-container');
+      const gameLoadTitle = document.querySelector('.game-load-title');
+
+      sidebarContainer.classList.add('sidebar-container:hover');
+      gameLoadTitle.classList.add('game-load-title:hover');
+    }
+    </script>
 </body>
 </html>
