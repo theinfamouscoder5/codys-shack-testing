@@ -10,54 +10,9 @@
 
     <link rel="stylesheet" href="../css/loadingbar.css">
     <link rel="stylesheet" href="../css/loadgame.css">
-
-    <style>
-        body {
-            background: rgb(2,0,36);
-            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(0, 0, 18) 72%, rgb(0, 3, 11) 92%);
-            color: white;
-        }
-
-        #ad-wrapper{
-            position: absolute;
-            top: 27%;
-            left: 50%;
-            margin-top: -50px;
-            margin-left: -50px;
-        }​
-
-        #ad-container {
-            display: inline-block;
-        }
-     </style>
 </head>
 <body>
     <div class="sidebar-container">
-        <!--<h1 class="text-4xl font-bold game-load-title">
-            Loading your game...
-        </h1>
-        <br>
-        <p class="text-xl gamers-ahead-text" id="gamers-ahead-text-box">Gamers ahead of you: <b><span class="gamers-ahead-count-text" id="gamers-ahead-count-box">0</span></b></p>
-        <br>
-        <div id="loadingProgressG">
-            <div id="loadingProgressG_1" class="loadingProgressG"></div>
-        </div>
-        <br>
-        <br>
-        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Upgrade to Day Pass</a>
-        <br>
-        <br>
-        <p class="text-lg upgrade-title">Upgrade for shorter queues and get:</p>
-        <ul class="list-disc ml-8 upgrade-list">
-            <li>Up to <b>8 hour</b> game session times</li>
-            <li><b>Little</b> to <b>no</b> ads</li>
-            <li><b>Priority</b> in game queues</li>
-            <li><b>Better quality</b> gaming, up to <b>4K</b></li>
-        </ul>
-        <br>
-        <br>
-        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Load ads</a>-->
-        
         <h1 class="game-load-title">
             Loading your game...
         </h1>
@@ -72,18 +27,19 @@
         <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button">Upgrade to Day Pass</a>
         <br>
         <br>
-        <p class="upgrade-title">Upgrade for shorter queues and get:</p>
-        <ul class="upgrade-list">
-            <li>Up to <b>8 hour</b> game session times</li>
-            <li><b>Little</b> to <b>no</b> ads</li>
-            <li><b>Priority</b> in game queues</li>
-            <li><b>Better quality</b> gaming, up to <b>4K</b></li>
-        </ul>
+        <div class="upgrade-container">
+            <p class="upgrade-title">Upgrade for shorter queues and get:</p>
+            <ul class="upgrade-list">
+                <li>Up to <b>8 hour</b> game session times</li>
+                <li><b>Little</b> to <b>no</b> ads</li>
+                <li><b>Priority</b> in game queues</li>
+                <li><b>Better quality</b> gaming, up to <b>4K</b></li>
+            </ul>
+        </div>
         <br>
         <br>
-        <a onclick="applyHoverClasses();" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded px-3 py-2 text-xl font-medium">Load ads</a>
+        
     </div>
-
     
 
     <!--<script async
@@ -97,8 +53,18 @@
 
     <div id="ad-wrapper">
         <div class="ad-container" id="ad-cont">
-            <p style="text-align: center;">Finish the ads to stay in the game queue</p>
+            <div id="video-placement">
+                <video disableremoteplayback="" disablepictureinpicture="" id="preStreamVideo" autoplay="" fxflex="" width="1020" name="opportunityVideo" poster="shared/assets/img/DefaultGameArt-TVBanner-nonGame.svg" class="ad-video" style="flex: 1 1 0px; box-sizing: border-box;">
+                    <source id="preStreamSource-1" type="video/mp4" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/eab390ba-8459-4ef0-819e-7368f6ac8e3a.mp4">
+                    <source id="preStreamSource-2" type="video/webm" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/c059b8c0-5739-448a-aa13-2c056f34afab.webm">
+                    <source id="preStreamSource-3" type="application/x-mpegURL" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/9d9f5ff6-d32f-4e91-abcd-d01af65a4144/creative.m3u8">
+                    Your browser does not support HTML5 video.
+                </video>
+                <!--<video _ngcontent-ng-c3955037579="" disableremoteplayback="" disablepictureinpicture="" id="preStreamVideo" autoplay="" fxflex="" name="opportunityVideo" poster="shared/assets/img/DefaultGameArt-TVBanner-nonGame.svg" class="gfn-background.streamer-bg video-container ng-tns-c3955037579-17 ng-star-inserted" style="flex: 1 1 0px; box-sizing: border-box;"><source _ngcontent-ng-c3955037579="" id="preStreamSource-1" type="video/mp4" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/0a3e073a-f412-406f-9252-b8aee02a3759.mp4"><source _ngcontent-ng-c3955037579="" id="preStreamSource-2" type="video/webm" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/51b632b6-e11e-413f-ba11-2b97d3bf6200.webm"><source _ngcontent-ng-c3955037579="" id="preStreamSource-3" type="application/x-mpegURL" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/b868ad05-5986-45fe-9fe6-d93f0a5ad744/creative.m3u8"></video>-->
+            </div>
+            <p style="text-align: center; margin-top: 5px;">Watch all the ads to stay in the game queue</p>
         </div>
+        <!--<button _ngcontent-ng-c3955037579="" cdkfocusinitial="" mat-button="" aria-label="volume" class="mat-focus-indicator mat-icon-button ng-tns-c3955037579-130 mat-button mat-button-base"><span class="mat-button-wrapper"><mat-icon _ngcontent-ng-c3955037579="" role="img" svgicon="volume" class="mat-icon notranslate ng-tns-c3955037579-130 mat-icon-no-color ng-star-inserted" aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="volume" style=""><svg viewBox="0 0 24 24" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></svg></mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple"></span><span class="mat-button-focus-overlay"></span></button>-->
     </div>
 
     <!--<script>
@@ -153,13 +119,29 @@
     </script>-->
     
     <script>
-    function applyHoverClasses() {
+    function animateSidebar() {
       const sidebarContainer = document.querySelector('.sidebar-container');
       const gameLoadTitle = document.querySelector('.game-load-title');
 
-      sidebarContainer.classList.add('sidebar-container:hover');
-      gameLoadTitle.classList.add('game-load-title:hover');
+      sidebarContainer.classList.add('sidebar-container-hover');
+      gameLoadTitle.classList.add('game-load-title-hover');
     }
+
+    function unAnimateSidebar() {
+      const sidebarContainer = document.querySelector('.sidebar-container');
+      const gameLoadTitle = document.querySelector('.game-load-title');
+
+      sidebarContainer.classList.remove('sidebar-container-hover');
+      gameLoadTitle.classList.remove('game-load-title-hover');
+    }
+
+    function playAds(){
+        animateSidebar();
+        const myTimeout = setTimeout(unAnimateSidebar, 5000);
+        
+    }
+
+    const myTimeout = setTimeout(playAds, 5000);
     </script>
 </body>
 </html>

@@ -1,40 +1,59 @@
+/* Regular Stuff */
+
+body {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(0, 0, 18) 72%, rgb(0, 3, 11) 92%);
+  color: #ffffff;
+}
+
+/* Sidebar */
+
 .sidebar-container {
   margin-top: 3rem;
   margin-left: 3.4rem;
   transition: 500ms;
+  position: relative;
 }
 
-.sidebar-container:hover {
-  margin-top: 2rem;
-  margin-left: 2.5rem;
-}
+
 
 .game-load-title {
   font-size: 2.75rem;
-  line-height: 2.5rem;
+  /*line-height: 2.5rem;*/
   font-weight: 700;
   transition: 500ms;
-}
-
-.game-load-title:hover {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-  font-weight: 700;
+  position: relative;
+  z-index: 1;
 }
 
 .gamers-ahead-text {
   font-size: 1.25rem;
-  line-height: 1.75rem;
+  /*line-height: 1.75rem;*/
+  position: absolute;
+  transition: top 0.5s ease-in-out;
+  left: 0;
+  top: 5rem;
+}
+
+.game-load-title-hover + .gamers-ahead-text {
+  top: 1.5rem; /* Adjust the top value to match the new title position */
 }
 
 .upgrade-title {
   font-size: 1.125rem;
   line-height: 1.75rem;
+  margin-top: 2rem;
 }
 
 .upgrade-list {
   list-style-type: disc;
   margin-left: 2rem;
+}
+
+.upgrade-container {
+  position: absolute;
+  top: 12rem;
+  transition: top 0.5s ease-in-out;
 }
 
 .buy-button {
@@ -48,9 +67,44 @@
   font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 500;
+  position: absolute;
+  top: 10rem;
+  transition: top 0.5s ease-in-out;
 }
 
 .buy-button:hover {
   color: rgb(255 255 255);
   background-color: rgb(67 56 202);
+}
+
+/* Sidebar Animations */
+
+.sidebar-container-hover {
+  margin-top: 2rem;
+  margin-left: 2.5rem;
+}
+
+.game-load-title-hover {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+/* Advertisements */
+
+#ad-wrapper{
+  position: fixed;
+  left: 50%;
+  margin-top: -10%;
+  margin-right: 120px;
+  display: none;
+}​
+
+#ad-container {
+  display: inline-block;
+}
+
+.ad-video {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
 }
