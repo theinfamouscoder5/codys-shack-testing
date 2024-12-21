@@ -54,13 +54,9 @@
     <div id="ad-wrapper">
         <div class="ad-container" id="ad-cont">
             <div id="video-placement">
-                <video disableremoteplayback="" disablepictureinpicture="" id="preStreamVideo" autoplay="" fxflex="" width="1020" name="opportunityVideo" poster="shared/assets/img/DefaultGameArt-TVBanner-nonGame.svg" class="ad-video" style="flex: 1 1 0px; box-sizing: border-box;">
-                    <source id="preStreamSource-1" type="video/mp4" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/eab390ba-8459-4ef0-819e-7368f6ac8e3a.mp4">
-                    <source id="preStreamSource-2" type="video/webm" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/c059b8c0-5739-448a-aa13-2c056f34afab.webm">
-                    <source id="preStreamSource-3" type="application/x-mpegURL" class="ng-tns-c3955037579-150" src="https://creative-f1.simulmedia-apis.com/9d9f5ff6-d32f-4e91-abcd-d01af65a4144/creative.m3u8">
-                    Your browser does not support HTML5 video.
+                <video id="adVideo" disableremoteplayback="" disablepictureinpicture="" id="preStreamVideo" autoplay="" fxflex="" width="1020" name="opportunityVideo" poster="shared/assets/img/DefaultGameArt-TVBanner-nonGame.svg" class="ad-video" style="flex: 1 1 0px; box-sizing: border-box;">
+                    
                 </video>
-                <!--<video _ngcontent-ng-c3955037579="" disableremoteplayback="" disablepictureinpicture="" id="preStreamVideo" autoplay="" fxflex="" name="opportunityVideo" poster="shared/assets/img/DefaultGameArt-TVBanner-nonGame.svg" class="gfn-background.streamer-bg video-container ng-tns-c3955037579-17 ng-star-inserted" style="flex: 1 1 0px; box-sizing: border-box;"><source _ngcontent-ng-c3955037579="" id="preStreamSource-1" type="video/mp4" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/0a3e073a-f412-406f-9252-b8aee02a3759.mp4"><source _ngcontent-ng-c3955037579="" id="preStreamSource-2" type="video/webm" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/51b632b6-e11e-413f-ba11-2b97d3bf6200.webm"><source _ngcontent-ng-c3955037579="" id="preStreamSource-3" type="application/x-mpegURL" class="ng-tns-c3955037579-17" src="https://creative-f1.simulmedia-apis.com/b868ad05-5986-45fe-9fe6-d93f0a5ad744/creative.m3u8"></video>-->
             </div>
             <p style="text-align: center; margin-top: 5px;">Watch all the ads to stay in the game queue</p>
         </div>
@@ -135,13 +131,56 @@
       gameLoadTitle.classList.remove('game-load-title-hover');
     }
 
-    function playAds(){
-        animateSidebar();
-        const myTimeout = setTimeout(unAnimateSidebar, 5000);
-        
+    function showAds() {
+      const adContainer = document.querySelector('#ad-wrapper');
+
+      adContainer.setAttribute("id", "ad-wrapper-on")
     }
 
-    const myTimeout = setTimeout(playAds, 5000);
+    function hideAds() {
+      const adContainer = document.querySelector('#ad-wrapper');
+
+      adContainer.setAttribute("id", "#ad-wrapper")
+    }
+
+    function getRandomAd() {
+        return fetch('../ads/ads.json')
+            .then(response => response.json())
+            .then(data => {
+            const arr = data.map((item) => item.trim().replace("<", "").replace(">", ""));
+            const randomAd = arr[Math.floor(Math.random() * arr.length)];
+            return randomAd;
+            })
+            .catch(error => console.error(error));
+    }
+
+    function playAds(){
+        const adVideo = document.querySelector("#adVideo");
+
+        getRandomAd().then(ad => adVideo.innerHTML = ad + 'Your browser does not support HTML5 video.');
+
+        animateSidebar();
+        showAds ();
+        const myTimeout = setTimeout(unAnimateSidebar, 5000);
+        const myTimeout2 = setTimeout(hideAds, 5000);
+    }
+
+    const myTimeout = setTimeout(playAds, 1000);
+
+    console.log(`
+     /////    |||||||||||    /////    |||||    !
+    |             | |       |     |   |   |    !
+    |             | |       |     |   |   |    !
+    |  ///        | |       |     |   |||||    !
+          |       | |       |     |   |        !
+    | /////       |||        /////   |        !
+
+    Keep your account safe! Do not send any information from
+    here to anyone or paste any text here.
+
+    If someone is asking you to copy or paste text here, then
+    you're giving someone access to your account, memberships,
+    games, and more.`);
     </script>
 </body>
 </html>

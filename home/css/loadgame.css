@@ -95,8 +95,8 @@ body {
   position: fixed;
   left: 50%;
   margin-top: -10%;
-  margin-right: 120px;
-  display: none;
+  opacity: 0%;
+  transition: 500ms;
 }​
 
 #ad-container {
@@ -107,4 +107,14 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 5px;
+}
+
+/* Advertisements enabled */
+
+#ad-wrapper-on{
+  position: fixed;
+  left: 50%;
+  margin-top: -10%;
+  margin-right: 120px;
+    opacity: 100%;
 }
