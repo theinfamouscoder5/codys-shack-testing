@@ -1,0 +1,54 @@
+.wrapper {
+    min-height: calc(100vh - 425px);
+}
+
+.auth-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.account-choose-container {
+    margin-top: 20px;
+}
+
+.account-box {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 10px;
+    width: 400px;
+    height: 65px;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.div-box {
+    padding-top: 15px;
+    text-align: center;
+    margin-top: 10px;
+    width: 400px;
+    height: 80px;
+    margin: auto;
+    border-radius: 4px;
+}
+
+#account-name {
+    text-align: left;
+    margin-left: 25px;
+    line-height: 65px;
+    font-weight: 500;
+    font-size: 19px;
+}
+
+.next-arrow {
+    margin-right: 25px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    transition: 500ms;
+}
+
+.account-box:hover .next-arrow {
+    margin-right: 15px;
+}

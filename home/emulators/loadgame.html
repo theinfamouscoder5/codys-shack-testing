@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../css/loadingbar.css">
     <link rel="stylesheet" href="../css/loadgame.css">
+    <link rel="stylesheet" href="../css/modal.css">
 </head>
 <body>
     <div class="sidebar-container">
@@ -24,11 +25,12 @@
         </div>
         <br>
         <br>
-        <a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button">Upgrade to Day Pass</a>
+        <!--<a href="https://buy.stripe.com/test_00g3fL2rH5jd9e87st" class="buy-button">Upgrade Now</a>-->
+        <button onclick="exitQueue('../../index.html#memberships', `To upgrade, you'll need to exit the game queue`);" class="buy-button">Upgrade Now</button>
         <br>
         <br>
         <div class="upgrade-container">
-            <p class="upgrade-title">Upgrade for shorter queues and get:</p>
+            <p class="upgrade-title">Upgrade for game shorter queues and get:</p>
             <ul class="upgrade-list">
                 <li>Up to <b>8 hour</b> game session times</li>
                 <li><b>Little</b> to <b>no</b> ads</li>
@@ -61,6 +63,25 @@
             <p style="text-align: center; margin-top: 5px;">Watch all the ads to stay in the game queue</p>
         </div>
         <!--<button _ngcontent-ng-c3955037579="" cdkfocusinitial="" mat-button="" aria-label="volume" class="mat-focus-indicator mat-icon-button ng-tns-c3955037579-130 mat-button mat-button-base"><span class="mat-button-wrapper"><mat-icon _ngcontent-ng-c3955037579="" role="img" svgicon="volume" class="mat-icon notranslate ng-tns-c3955037579-130 mat-icon-no-color ng-star-inserted" aria-hidden="true" data-mat-icon-type="svg" data-mat-icon-name="volume" style=""><svg viewBox="0 0 24 24" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"></path></svg></mat-icon></span><span matripple="" class="mat-ripple mat-button-ripple"></span><span class="mat-button-focus-overlay"></span></button>-->
+    </div>
+
+    <div class="modal exitModal">
+        <div class="container rounded">
+            <div class="header">
+                <h1 class="text-2xl">Exit game queue?</h1>
+                <button class="close">&times;</button> 
+            </div>
+            <hr class="h-1 rounded w-96 mx-auto my-1 border-0" style="background-color: #1b1b1b;">
+            <div class="content ml-6" style="color: #ffffff;">
+                <p id="exitModalText"></p>
+            </div>
+            <div class="footer">
+                <button style="width: 80px; height: 34px;" class="close right-4 bottom-4 text-lg font-medium text-center text-white bg-indigo-800 rounded hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 bg-red-800">Cancel</button>
+                <div id="exitModalButton">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--<script>
@@ -114,7 +135,12 @@
 
     </script>-->
     
+    <script src="../js/modal-nocookie.js"></script>
+
     <script>
+    Modal.initElements();
+    let myModal = new Modal({ element: document.querySelector('.exitModal') });
+    
     function animateSidebar() {
       const sidebarContainer = document.querySelector('.sidebar-container');
       const gameLoadTitle = document.querySelector('.game-load-title');
@@ -163,6 +189,16 @@
         showAds ();
         const myTimeout = setTimeout(unAnimateSidebar, 5000);
         const myTimeout2 = setTimeout(hideAds, 5000);
+    }
+    
+    function exitQueue(url, text){
+        document.getElementById('exitModalText').innerHTML = text;
+        const button = document.getElementById('exitModalButton');
+        button.innerHTML = '<button style="width: 112px; height: 34px;" class="absolute right-4 bottom-4 text-lg font-medium text-center text-white bg-indigo-800 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-blue-300 bg-indigo-800">Exit Queue</button>';
+        button.addEventListener('click', function() {
+            window.location.href = url;
+        });
+        myModal.open();
     }
 
     const myTimeout = setTimeout(playAds, 1000);
