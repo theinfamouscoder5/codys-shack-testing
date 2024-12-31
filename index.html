@@ -210,7 +210,7 @@
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold  text-white">Choose your Membership</h2>
         </div>
 
-
+        <div id="regular-memberships">
         <div class="p-6 border rounded-lg shadow bg-gray-800 border-gray-700 max-w-7xl">
           <h3 class="mb-2 text-2xl font-bold tracking-tight text-white">Classic Games Pass</h3>
           <p class="mb-3 font-normal text-gray-400">Play classic games like Slope and Snow Rider 3D, no account required</p>
@@ -233,9 +233,10 @@
           </a>
           <p class="mt-1 text-xs font-normal text-gray-400">By submitting the Cody's Shack Beta Tester form, you agree to our <a href="terms.html" class="text-indigo-500 hover:text-indigo-300">terms & conditions</a> and <a href="privacy.html" class="text-indigo-500 hover:text-indigo-300">privacy policy</a></p>
         </div>
+        </div>
         <br>
         <br>
-        <!--<div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
               <h3 class="mb-4 text-2xl font-semibold">Free Pass</h3>
               <p class="font-light text-gray-500 sm:text-lg text-gray-400">Always free, forever. Includes up to 720p HD gaming.</p>
@@ -277,7 +278,7 @@
                 <h3 class="mb-4 text-2xl font-semibold">Day Pass</h3>
                 <p class="font-light text-gray-500 sm:text-lg  text-gray-400">For a day of ultimate gaming experience, up to 1080p HD.</p>
                 <div class="flex justify-center items-baseline my-8">
-                    <span class="mr-2 text-5xl font-extrabold">$2.00</span>
+                    <span class="mr-2 text-5xl font-extrabold">$1.99</span>
                     <span class="text-gray-500  text-gray-400">/day</span>
                 </div>
                  
@@ -285,7 +286,7 @@
                     <li class="flex items-center space-x-3">
                          
                         <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                        <span>3 hour session time</span>
+                        <span>6 hour session time</span>
                     </li>
                     <li class="flex items-center space-x-3">
                        
@@ -308,14 +309,14 @@
                         <span>Priority in game queues</span>
                     </li>
                 </ul>
-                <a href="auth/signup.html?membership=day" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Get The Pass</a>
+                <a href="account/index.html?nexturl=secure/checkout.html?membership=2" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Get The Pass</a>
             </div>
         
           <div class="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border border-gray-100 shadow  border-gray-600 xl:p-8  bg-gray-800  text-white">
               <h3 class="mb-4 text-2xl font-semibold">CodyPass</h3>
               <p class="font-light text-gray-500 sm:text-lg  text-gray-400">Get a month filled with the best gaming experience, complete with 4K gaming.</p>
               <div class="flex justify-center items-baseline my-8">
-                  <span class="mr-2 text-5xl font-extrabold">$20</span>
+                  <span class="mr-2 text-5xl font-extrabold">$14.99</span>
                   <span class="text-gray-500  text-gray-400">/month</span>
               </div>
                
@@ -323,7 +324,7 @@
                   <li class="flex items-center space-x-3">
                        
                       <svg class="flex-shrink-0 w-5 h-5 text-green-500  text-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                      <span><span class="font-semibold">8 hour</span> session time</span>
+                      <span><span class="font-semibold">10 hour</span> session time</span>
                   </li>
                   <li class="flex items-center space-x-3">
                        
@@ -348,7 +349,7 @@
               </ul>
               <a href="auth/signup.html?membership=codypass" class="text-gray-300 bg-indigo-800 hover:bg-indigo-700 hover:text-white rounded-md px-5 py-2 text-xl font-medium">Join Now</a>
           </div>
-      </div>-->
+      </div>
   </div>
       </section>
       </div>
@@ -463,6 +464,17 @@
       </div>
     </div>
 </footer>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<!-- Our script must be loaded after firebase references -->
+<script src="js/main.js"></script>
+<script src="js/home.js"></script>
 <script src="home/js/modal.js"></script>
 <script src="home/js/releases-modal.js"></script>
 <script src="home/js/releases.js"></script>

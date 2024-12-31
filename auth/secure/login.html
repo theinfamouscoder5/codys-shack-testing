@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login | Cody's Shack</title>
+        <!-- Our stylesheet -->
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body style="background-color: #131520 !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+        <section class="bg-gray-900">
+            <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                <a href="../../index.html" class="flex items-center mb-6 text-2xl font-semibold text-gray-900  text-white">
+                    <img class="w-8 h-8 mr-2 rounded-full" src="../../../images/logo.png" alt="logo">
+                    Cody's Shack    
+                </a>
+                <div class="w-full rounded-lg shadow  border md:mt-0 sm:max-w-md xl:p-0  bg-gray-800  border-gray-700">
+                    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl  text-white">
+                            Sign in to Cody's Shack
+                        </h1>
+                        <div class="space-y-4 md:space-y-6">
+                            <div style="display: none;">
+                                <label for="display_name" class="block mb-2 text-sm font-medium text-gray-900  text-white">Display name</label>
+                                <input type="text" id="display_name" placeholder="Display name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900  text-white">Email</label>
+                                <input type="email" id="email" placeholder="Email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="password" class="block mb-2 text-sm font-medium text-gray-900  text-white">Password</label>
+                                <input type="password" id="password" placeholder="New Password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500">
+                            </div>
+                            <div style="display: none;">
+                                <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900  text-white">Confirm Password</label>
+                                <input type="password" id="confirm_password" placeholder="Confirm Password" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  bg-gray-700  border-gray-600  placeholder-gray-400  text-white  focus:ring-blue-500  focus:border-blue-500">
+                            </div>
+                            
+                            
+
+                            <!--<input type="text" id="favourite_song" placeholder="The Best Song Ever">
+                            <input type="text" id="milk_before_cereal" placeholder="Milk Before Cereal? ( Yes | No )">-->
+
+                            <div id="button_container">
+                                <button onclick="login()" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
+                                <!--<button onclick="register()" class="w-full text-white bg-indigo-800 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Sign Up</button>-->
+                            </div>
+
+                            <p class="text-sm font-light text-gray-500  text-gray-400">
+                                Don't have an account yet? <a href="signup.html" class="font-medium hover:underline hover:text-indigo-300 text-indigo-400">Sign up</a>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <!-- Our script must be loaded after firebase references -->
+    <script src="js/main.js"></script>
+
+</html>
