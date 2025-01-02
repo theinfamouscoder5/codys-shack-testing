@@ -515,17 +515,18 @@
                         </dl>
             
                         <dl class="flex items-center justify-between gap-4 py-3">
-                          <dt class="text-base font-normal text-white" id="membership-name">Membership</dt>
+                          <dt class="text-base font-normal text-white">Membership</dt>
+                          <dd class="text-base font-normal text-white" id="membership-name"></dd>
                         </dl>
             
                         <dl class="flex items-center justify-between gap-4 py-3">
                           <dt class="text-base font-normal text-white">Quantity</dt>
-                          <dd class="text-base font-medium text-white"><button type="button" id="quantity-remove" class="mr-2 text-xl text-gray-400" disabled>-</button><span id="quantity-number">1</span><button type="button" id="quantity-add" class="ml-2 text-xl text-indigo-400 hover:text-indigo-300">+</button></dd>
+                          <dd class="text-base font-medium text-white"><button type="button" onclick="removeQuantity();" id="quantity-remove" class="mr-2 text-xl text-gray-400" disabled>-</button><span id="quantity-number">1</span><button type="button" onclick="addQuantity();" id="quantity-add" class="ml-2 text-xl text-indigo-400 hover:text-indigo-300">+</button></dd>
                         </dl>
             
                         <dl class="flex items-center justify-between gap-4 py-3">
                           <dt class="text-base font-bold text-gray-900 dark:text-white">Total</dt>
-                          <dd class="text-base font-bold text-gray-900 dark:text-white">$0.00 + tax</dd>
+                          <dd class="text-base text-gray-900 dark:text-white"><span class="font-bold">$<span id="total-cost">0.00</span> USD + tax</span> / <span id="payment-type"></span></dd>
                         </dl>
                       </div>
                     </div>
